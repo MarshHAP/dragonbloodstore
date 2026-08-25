@@ -7,16 +7,16 @@
   <meta name="description" content="Dragonblood® Anti-Ageing Serum — a daily botanical serum with dragon blood extract, ceramide NP and ganoderma to repair, hydrate and brighten your skin.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩸</text></svg>">
 </head>
 <body>
 
   <!-- ============ COUNTDOWN ANNOUNCEMENT BAR ============ -->
   <div class="countdown-bar" id="countdownBar">
     <div class="countdown-bar__inner">
-      <span class="countdown-bar__label">Summer Sale &mdash; Up To 55% Off</span>
+      <span class="countdown-bar__label">Summer Sale &ndash; 55% Off</span>
       <div class="countdown-bar__timer" aria-label="Sale ends in">
         <span class="timer-cell"><b id="tHrs">00</b><small>Hrs</small></span>
         <span class="timer-sep">:</span>
@@ -33,36 +33,35 @@
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <a class="logo" href="index.html">Dragon<span>blood</span><sup>®</sup></a>
-      <nav class="site-nav" id="siteNav" aria-label="Main">
-        <a href="contact.html#track-order">Track Order</a>
-        <a href="contact.html">Contact</a>
-        <a href="policies.html">Policies</a>
-        <a href="#reviews">Reviews</a>
-      </nav>
+      <a class="logo" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="15" height="15"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg> DRAGONBLOOD</a>
       <button class="cart-btn" id="cartOpen" aria-label="Open cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="22" height="22"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </button>
     </div>
+    <nav class="menu-drawer" id="menuDrawer" aria-label="Main">
+      <a href="contact.html#track-order">Track Order</a>
+      <a href="contact.html">Contact</a>
+      <a href="policies.html">Policies</a>
+      <a href="#reviews" class="js-scroll">Reviews</a>
+    </nav>
   </header>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO BANNER ============ -->
   <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__copy">
-        <p class="eyebrow">Botanical Skincare Ritual</p>
-        <h1>Radiant Skin,<br>Powered by Nature</h1>
-        <p class="hero__sub">A daily anti-ageing serum with dragon blood extract that helps repair your skin barrier, deeply hydrate, and restore a healthy glow.</p>
-        <a href="#offer" class="btn btn--primary btn--lg js-scroll">Try Dragonblood Risk-Free</a>
-        <div class="guarantee-pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
-          30-Day Money-Back Guarantee
+    <div class="container">
+      <div class="hero__banner">
+        <img class="hero__photo" src="assets/img/serum-dropper.jpg" alt="" aria-hidden="true">
+        <div class="hero__scrim" aria-hidden="true"></div>
+        <div class="hero__content">
+          <h1>Radiant Skin,<br>Powered by Nature</h1>
+          <p class="hero__sub">A daily botanical serum that helps repair your skin barrier and restore a healthy glow.</p>
+          <a href="#offer" class="btn btn--primary js-scroll">Try Dragonblood <u>Risk-Free</u></a>
+          <div class="guarantee-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+            30 Day Money Back Guarantee
+          </div>
         </div>
-      </div>
-      <div class="hero__media">
-        <div class="hero__blob" aria-hidden="true"></div>
-        <img src="assets/img/serum-dropper.jpg" alt="Dragonblood serum dropper with rich red botanical serum" width="440" height="440">
       </div>
     </div>
   </section>
@@ -70,25 +69,26 @@
   <!-- ============ TESTIMONIAL STRIP ============ -->
   <section class="testimonials" id="reviews">
     <div class="container">
+      <div class="stars stars--lead" aria-hidden="true">★★★★★</div>
       <h2 class="section-title">What Customers Are Saying</h2>
       <div class="testimonial-grid">
         <article class="review-card">
-          <div class="review-card__top"><span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span><span class="review-score">4.9</span></div>
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Glowing again</h3>
           <p>&ldquo;My skin looked dull for years. After three weeks of the serum it finally looks fresh and rested again.&rdquo;</p>
-          <footer>&mdash; Amelia <span class="verified">✔ Verified Customer</span></footer>
+          <footer><span class="chip">Amelia</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
         <article class="review-card">
-          <div class="review-card__top"><span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span><span class="review-score">4.9</span></div>
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Softer &amp; smoother</h3>
-          <p>&ldquo;Fine lines around my eyes look softer and my cheeks feel properly hydrated all day. I didn&rsquo;t expect this much from one serum.&rdquo;</p>
-          <footer>&mdash; Marcus <span class="verified">✔ Verified Customer</span></footer>
+          <p>&ldquo;Fine lines look softer and my cheeks stay hydrated all day. I didn&rsquo;t expect one serum to cover this much ground.&rdquo;</p>
+          <footer><span class="chip">Marcus</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
         <article class="review-card">
-          <div class="review-card__top"><span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span><span class="review-score">4.9</span></div>
-          <h3>Calmer skin</h3>
-          <p>&ldquo;My skin used to feel tight and irritated by evening. Now it stays calm and comfortable &mdash; even in winter.&rdquo;</p>
-          <footer>&mdash; Sofia <span class="verified">✔ Verified Customer</span></footer>
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
+          <h3>Calm, easy mornings</h3>
+          <p>&ldquo;After a few weeks, my skin feels calm and comfortable and my morning routine takes half the time.&rdquo;</p>
+          <footer><span class="chip">Sofia</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
       </div>
     </div>
@@ -98,31 +98,35 @@
   <section class="benefits">
     <div class="container">
       <h2 class="section-title">The Benefits of Using Dragonblood</h2>
-      <div class="benefit-grid">
-        <article class="benefit-card">
-          <div class="benefit-card__icon">🛡️</div>
-          <h3>Repairs the Skin Barrier</h3>
-          <p>Dragon blood extract and ceramide NP help strengthen and repair your skin&rsquo;s natural protective barrier.</p>
-        </article>
-        <article class="benefit-card">
-          <div class="benefit-card__icon">💧</div>
-          <h3>Deep, Lasting Hydration</h3>
-          <p>Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.</p>
-        </article>
-        <article class="benefit-card">
-          <div class="benefit-card__icon">✨</div>
-          <h3>Brightens &amp; Evens Tone</h3>
-          <p>A focused botanical formula that helps fade dullness and bring back a healthy, even glow.</p>
-        </article>
-        <article class="benefit-card">
-          <div class="benefit-card__icon">🌿</div>
-          <h3>A Gentle Daily Ritual</h3>
-          <p>Lightweight, fast-absorbing and gentle enough for daily use &mdash; just a few drops, morning and night.</p>
-        </article>
+      <div class="benefits__grid">
+        <div class="benefits__list" id="benefitsList">
+          <button class="benefit-row is-active" data-benefit="0">
+            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span> Repairs the Skin Barrier</span>
+            <span class="benefit-row__body">Dragon blood extract and ceramide NP help strengthen and repair your skin&rsquo;s natural protective barrier.</span>
+          </button>
+          <button class="benefit-row" data-benefit="1">
+            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span> Deep, Lasting Hydration</span>
+            <span class="benefit-row__body">Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.</span>
+          </button>
+          <button class="benefit-row" data-benefit="2">
+            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"/></svg></span> Brightens &amp; Evens Tone</span>
+            <span class="benefit-row__body">A focused botanical formula that helps fade dullness and bring back a healthy, even glow.</span>
+          </button>
+          <button class="benefit-row" data-benefit="3">
+            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15Z"/><path d="M5 19c3-5 7-8 11-10"/></svg></span> A Simple Botanical Formula</span>
+            <span class="benefit-row__body">Lightweight, fast-absorbing and gentle enough for daily use &mdash; a few drops, morning and night.</span>
+          </button>
+        </div>
+        <div class="benefits__media">
+          <img src="assets/img/serum-extract.jpg" alt="Dragon blood tree — the source of dragon blood extract">
+        </div>
       </div>
       <div class="section-cta">
-        <a href="#offer" class="btn btn--primary btn--lg js-scroll">Try Dragonblood Risk-Free</a>
-        <p class="cta-note">30-Day Money-Back Guarantee</p>
+        <a href="#offer" class="btn btn--primary js-scroll">Try Dragonblood <u>Risk-Free</u></a>
+        <div class="guarantee-pill guarantee-pill--light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+          30 Day Money Back Guarantee
+        </div>
       </div>
     </div>
   </section>
@@ -132,110 +136,116 @@
     <div class="container product__inner">
 
       <!-- Gallery -->
-      <div class="gallery">
-        <div class="gallery__main">
-          <img id="galleryMain" src="assets/img/serum-front.jpg" alt="Dragonblood Anti-Ageing Serum 30ml bottle" width="520" height="520">
-          <span class="gallery__badge">55% OFF</span>
+      <div class="gallery-col">
+        <div class="gallery">
+          <div class="gallery__thumbs" id="galleryThumbs">
+            <button class="thumb is-active" data-src="assets/img/serum-front.jpg" aria-label="View bottle front"><img src="assets/img/serum-front.jpg" alt=""></button>
+            <button class="thumb" data-src="assets/img/serum-box.jpg" aria-label="View bottle with box"><img src="assets/img/serum-box.jpg" alt=""></button>
+            <button class="thumb" data-src="assets/img/serum-dropper.jpg" aria-label="View dropper"><img src="assets/img/serum-dropper.jpg" alt=""></button>
+            <button class="thumb" data-src="assets/img/serum-benefits.jpg" aria-label="View benefits"><img src="assets/img/serum-benefits.jpg" alt=""></button>
+            <button class="thumb" data-src="assets/img/serum-ingredients.jpg" aria-label="View key ingredients"><img src="assets/img/serum-ingredients.jpg" alt=""></button>
+            <button class="thumb" data-src="assets/img/serum-extract.jpg" aria-label="View dragon blood extract source"><img src="assets/img/serum-extract.jpg" alt=""></button>
+          </div>
+          <div class="gallery__main">
+            <img id="galleryMain" src="assets/img/serum-front.jpg" alt="Dragonblood Anti-Ageing Serum 30ml bottle">
+          </div>
+          <div class="gallery__features">
+            <div class="feature-tile">
+              <span class="feature-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M10 3h4M11 3v4M13 3v4M9 7h6l1 3v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-9l1-3Z"/></svg></span>
+              <span>Everyday Skin Renewal</span>
+            </div>
+            <div class="feature-tile">
+              <span class="feature-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15Z"/><path d="M5 19c3-5 7-8 11-10"/></svg></span>
+              <span>Natural Botanical Formula</span>
+            </div>
+            <div class="feature-tile">
+              <span class="feature-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"/></svg></span>
+              <span>For a Feel-Good Routine</span>
+            </div>
+          </div>
         </div>
-        <div class="gallery__thumbs" id="galleryThumbs">
-          <button class="thumb is-active" data-src="assets/img/serum-front.jpg" aria-label="View bottle front"><img src="assets/img/serum-front.jpg" alt=""></button>
-          <button class="thumb" data-src="assets/img/serum-box.jpg" aria-label="View bottle with box"><img src="assets/img/serum-box.jpg" alt=""></button>
-          <button class="thumb" data-src="assets/img/serum-dropper.jpg" aria-label="View dropper"><img src="assets/img/serum-dropper.jpg" alt=""></button>
-          <button class="thumb" data-src="assets/img/serum-benefits.jpg" aria-label="View benefits"><img src="assets/img/serum-benefits.jpg" alt=""></button>
-          <button class="thumb" data-src="assets/img/serum-ingredients.jpg" aria-label="View key ingredients"><img src="assets/img/serum-ingredients.jpg" alt=""></button>
-          <button class="thumb" data-src="assets/img/serum-extract.jpg" aria-label="View dragon blood extract source"><img src="assets/img/serum-extract.jpg" alt=""></button>
+
+        <!-- Info accordions under gallery -->
+        <div class="accordion accordion--product" id="productAccordion">
+          <details>
+            <summary>Product Description</summary>
+            <div class="accordion__body">
+              <p><b>What It Is</b><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract &mdash; the deep-red resin of the dragon tree &mdash; combined with ceramide NP and glossy ganoderma. It&rsquo;s designed to repair the skin barrier, lock in moisture and smooth the look of fine lines. One bottle: 30&nbsp;ml.</p>
+              <p><b>How to Use</b><br>Morning and night, apply 3&ndash;4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Frequently Asked Questions</summary>
+            <div class="accordion__body">
+              <p><b>What does it do?</b><br>It supports your skin&rsquo;s natural barrier, hydrates deeply and helps restore an even, healthy glow as part of a daily routine.</p>
+              <p><b>Is it suitable for daily use?</b><br>Yes. The formula is lightweight and gentle, designed for use morning and night.</p>
+              <p><b>Which skin types can use it?</b><br>Most skin types, including dry, combination and sensitive skin. Patch-test first if your skin is very reactive.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Shipping, Returns &amp; Guarantees</summary>
+            <div class="accordion__body">
+              <p>We offer fast, tracked shipping. Most orders arrive within 3&ndash;5 business days. If you don&rsquo;t see or feel a difference, you&rsquo;re protected by our 30-Day Money-Back Guarantee &mdash; no questions asked.</p>
+            </div>
+          </details>
         </div>
       </div>
 
       <!-- Buy box -->
       <div class="buybox">
-        <p class="rating-line"><span class="stars">★★★★★</span> Rated 4.9 &lsquo;<b>Excellent</b>&rsquo;&nbsp;|&nbsp; 800+ Reviews</p>
+        <p class="rating-line"><span class="stars">★★★★★</span> Rated 4.9 &lsquo;<b>Excellent</b>&rsquo; | <a href="#reviews" class="js-scroll">800+ Reviews</a></p>
         <h2 class="buybox__title">Dragonblood® Anti-Ageing Serum</h2>
-        <p class="buybox__tagline">The daily ritual your skin has been waiting for &mdash; repair, hydrate and glow with the power of dragon blood extract.</p>
-
-        <!-- Info accordions -->
-        <div class="accordion" id="productAccordion">
-          <details open>
-            <summary>What It Is</summary>
-            <div class="accordion__body">
-              <p>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract &mdash; the deep-red resin of the dragon tree &mdash; combined with ceramide NP and glossy ganoderma. It&rsquo;s designed to repair the skin barrier, lock in moisture and smooth the look of fine lines. One bottle: 30&nbsp;ml.</p>
-            </div>
-          </details>
-          <details>
-            <summary>How to Use</summary>
-            <div class="accordion__body">
-              <p>Morning and night, apply 3&ndash;4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Key Ingredients</summary>
-            <div class="accordion__body">
-              <ul>
-                <li><b>Dragon Blood Extract</b> &mdash; enhances the skin barrier and speeds up recovery.</li>
-                <li><b>Ceramide NP</b> &mdash; repairs skin and helps maintain barrier stability.</li>
-                <li><b>Glossy Ganoderma</b> &mdash; hydrates skin and deeply moisturises.</li>
-              </ul>
-            </div>
-          </details>
-          <details>
-            <summary>Shipping, Returns &amp; Guarantee</summary>
-            <div class="accordion__body">
-              <p>Fast, tracked shipping &mdash; most orders arrive within 3&ndash;5 business days. If you don&rsquo;t see or feel a difference, you&rsquo;re protected by our 30-Day Money-Back Guarantee, no questions asked.</p>
-            </div>
-          </details>
-        </div>
+        <p class="buybox__tagline">The daily ritual your skin has been waiting for.</p>
 
         <!-- Bundle selector -->
         <div class="bundles" id="bundles" role="radiogroup" aria-label="Choose your bundle">
           <label class="bundle">
-            <input type="radio" name="bundle" value="buy1" data-title="Buy 1 Bottle" data-price="29.99" data-compare="39.99" data-qty="1">
-            <div class="bundle__body">
-              <div class="bundle__left">
-                <span class="bundle__name">Buy 1</span>
-                <span class="bundle__save">You save $10.00</span>
-              </div>
-              <div class="bundle__right">
-                <span class="bundle__price">$29.99</span>
-                <s class="bundle__compare">$39.99</s>
-              </div>
-            </div>
+            <input type="radio" name="bundle" value="buy1" data-title="Buy One" data-price="29.99" data-compare="39.99" data-qty="1">
+            <span class="bundle__check" aria-hidden="true"></span>
+            <span class="bundle__bottles" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
+            <span class="bundle__name">Buy One</span>
+            <span class="bundle__right"><b class="bundle__price">$29.99</b><s class="bundle__compare">$39.99</s></span>
           </label>
-          <label class="bundle is-featured">
+          <label class="bundle">
             <input type="radio" name="bundle" value="buy2" data-title="Buy 2, Get 1 FREE" data-price="59.99" data-compare="119.97" data-qty="3" checked>
             <span class="bundle__flag">Most Popular</span>
-            <div class="bundle__body">
-              <div class="bundle__left">
-                <span class="bundle__name">Buy 2, Get 1 FREE</span>
-                <span class="bundle__save">You save $59.98</span>
-              </div>
-              <div class="bundle__right">
-                <span class="bundle__price">$59.99</span>
-                <s class="bundle__compare">$119.97</s>
-              </div>
-            </div>
+            <span class="bundle__check" aria-hidden="true"></span>
+            <span class="bundle__bottles" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
+            <span class="bundle__name">Buy 2, Get 1 FREE</span>
+            <span class="bundle__right"><b class="bundle__price">$59.99</b><s class="bundle__compare">$119.97</s></span>
           </label>
           <label class="bundle">
             <input type="radio" name="bundle" value="buy3" data-title="Buy 3, Get 2 FREE" data-price="89.99" data-compare="199.95" data-qty="5">
             <span class="bundle__flag bundle__flag--alt">Free Shipping</span>
-            <div class="bundle__body">
-              <div class="bundle__left">
-                <span class="bundle__name">Buy 3, Get 2 FREE</span>
-                <span class="bundle__save">You save $109.96 + free shipping</span>
-              </div>
-              <div class="bundle__right">
-                <span class="bundle__price">$89.99</span>
-                <s class="bundle__compare">$199.95</s>
-              </div>
-            </div>
+            <span class="bundle__check" aria-hidden="true"></span>
+            <span class="bundle__bottles" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
+            <span class="bundle__name">Buy 3, Get 2 FREE</span>
+            <span class="bundle__right"><b class="bundle__price">$89.99</b><s class="bundle__compare">$199.95</s></span>
           </label>
         </div>
 
-        <button class="btn btn--primary btn--lg btn--block" id="addToCart">Add To Cart &mdash; <span id="atcPrice">$59.99</span></button>
-        <ul class="trust-row">
-          <li>🚚 Fast tracked shipping</li>
-          <li>🔒 Secure checkout</li>
-          <li>↩️ 30-day returns</li>
-        </ul>
+        <!-- Purchase type toggle -->
+        <div class="purchase-toggle" id="purchaseToggle" role="radiogroup" aria-label="Purchase type">
+          <label class="purchase-opt">
+            <input type="radio" name="ptype" value="onetime" checked>
+            <span class="purchase-opt__label">One-time purchase</span>
+          </label>
+          <label class="purchase-opt">
+            <input type="radio" name="ptype" value="subscribe">
+            <span class="purchase-opt__label">Subscribe &amp; Save 25%<small>Delivery every 4 weeks. Cancel anytime.</small></span>
+          </label>
+        </div>
+
+        <p class="ship-line"><span class="ship-line__icon"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" style="vertical-align:-2px"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span> Ready to ship &mdash; arrives by <b id="arrivalDate"></b></p>
+
+        <button class="btn btn--primary btn--block btn--atc" id="addToCart">Add To Cart &mdash; <span id="atcPrice">$59.99</span> <s id="atcCompare">$119.97</s></button>
+        <p class="atc-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+          30 Day Money Back Guarantee
+        </p>
+        <div class="pay-icons" aria-label="Accepted payment methods">
+          <span>VISA</span><span>MC</span><span>AMEX</span><span>PayPal</span><span>&#63743; Pay</span><span>G Pay</span>
+        </div>
       </div>
     </div>
   </section>
@@ -246,118 +256,131 @@
       <h2 class="section-title">Your Daily Ritual</h2>
       <div class="ritual-grid">
         <article class="ritual-step">
-          <span class="ritual-step__num">Step 1</span>
-          <h3>Dispense</h3>
-          <p>Squeeze 3&ndash;4 drops of serum onto your fingertips.</p>
+          <div class="ritual-step__card">
+            <span class="ritual-step__num">Step 1</span>
+            <h3>Dispense</h3>
+            <p>Squeeze 3&ndash;4 drops of serum onto your fingertips.</p>
+          </div>
+          <div class="ritual-step__photo"><img src="assets/img/serum-dropper.jpg" alt="Dropper with dragon blood serum"></div>
         </article>
         <article class="ritual-step">
-          <span class="ritual-step__num">Step 2</span>
-          <h3>Apply</h3>
-          <p>Gently press into clean face and neck until fully absorbed.</p>
+          <div class="ritual-step__card">
+            <span class="ritual-step__num">Step 2</span>
+            <h3>Apply</h3>
+            <p>Gently press into clean face and neck until fully absorbed.</p>
+          </div>
+          <div class="ritual-step__photo"><img src="assets/img/serum-benefits.jpg" alt="Serum benefits — brighten, repair skin, nourish"></div>
         </article>
         <article class="ritual-step">
-          <span class="ritual-step__num">Step 3</span>
-          <h3>Make It a Habit</h3>
-          <p>Use morning and night, and follow with moisturiser and SPF.</p>
+          <div class="ritual-step__card">
+            <span class="ritual-step__num">Step 3</span>
+            <h3>Make It a Habit</h3>
+            <p>Use morning and night, and follow with moisturiser and SPF.</p>
+          </div>
+          <div class="ritual-step__photo"><img src="assets/img/serum-ingredients.jpg" alt="Key ingredients — ceramide NP and glossy ganoderma"></div>
         </article>
       </div>
       <div class="section-cta">
-        <a href="#offer" class="btn btn--primary btn--lg js-scroll">Try Dragonblood Risk-Free</a>
-        <p class="cta-note">30-Day Money-Back Guarantee</p>
+        <a href="#offer" class="btn btn--primary js-scroll">Try Dragonblood <u>Risk-Free</u></a>
+        <div class="guarantee-pill guarantee-pill--light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+          30 Day Money Back Guarantee
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ REVIEW GRID ============ -->
+  <!-- ============ REVIEW WALL (DARK) ============ -->
   <section class="review-wall">
     <div class="container">
-      <h2 class="section-title">From Their Routine to Yours</h2>
+      <h2 class="section-title section-title--light">From Their Routine to Yours</h2>
       <div class="testimonial-grid testimonial-grid--wall" id="reviewWall">
         <article class="review-card">
-          <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-score">4.9</span></div>
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Seeing Real Improvement</h3>
           <p>&ldquo;It&rsquo;s become part of my morning routine &mdash; a few drops before moisturiser and I&rsquo;m good to go.&rdquo;</p>
-          <footer>&mdash; Maya <span class="verified">✔ Verified Customer</span></footer>
+          <footer><span class="chip">Maya</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
         <article class="review-card">
-          <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-score">4.9</span></div>
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Seeing Real Improvement</h3>
           <p>&ldquo;Light, non-sticky and easy to stick with. I actually look forward to using it.&rdquo;</p>
-          <footer>&mdash; Priya <span class="verified">✔ Verified Customer</span></footer>
+          <footer><span class="chip">Priya</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
         <article class="review-card">
-          <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-score">4.9</span></div>
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Seeing Real Improvement</h3>
           <p>&ldquo;Love that it&rsquo;s just a few drops. No ten-step routine, no fuss &mdash; fits right into my day.&rdquo;</p>
-          <footer>&mdash; Jordan <span class="verified">✔ Verified Customer</span></footer>
+          <footer><span class="chip">Jordan</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
-        <article class="review-card is-hidden">
-          <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-score">4.9</span></div>
+        <article class="review-card">
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Seeing Real Improvement</h3>
           <p>&ldquo;The redness on my cheeks has calmed down noticeably. My skin feels stronger.&rdquo;</p>
-          <footer>&mdash; Hannah <span class="verified">✔ Verified Customer</span></footer>
+          <footer><span class="chip">Hannah</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
-        <article class="review-card is-hidden">
-          <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-score">4.9</span></div>
+        <article class="review-card">
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Seeing Real Improvement</h3>
           <p>&ldquo;Absorbs in seconds and layers perfectly under makeup. A little goes a long way.&rdquo;</p>
-          <footer>&mdash; Daniel <span class="verified">✔ Verified Customer</span></footer>
+          <footer><span class="chip">Daniel</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
-        <article class="review-card is-hidden">
-          <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-score">4.9</span></div>
+        <article class="review-card">
+          <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Seeing Real Improvement</h3>
           <p>&ldquo;After a month my skin tone looks more even and I&rsquo;ve stopped wearing foundation most days.&rdquo;</p>
-          <footer>&mdash; Sofia <span class="verified">✔ Verified Customer</span></footer>
+          <footer><span class="chip">Sofia</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
         </article>
-      </div>
-      <div class="section-cta">
-        <button class="btn btn--ghost" id="showMoreReviews">Show More</button>
       </div>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
   <section class="faq">
-    <div class="container faq__inner">
+    <div class="container">
       <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="accordion accordion--faq">
-        <details>
-          <summary>What is Dragonblood serum?</summary>
-          <div class="accordion__body"><p>A daily anti-ageing serum built around dragon blood extract, ceramide NP and glossy ganoderma, designed to repair the skin barrier, hydrate deeply and restore a healthy glow.</p></div>
-        </details>
-        <details>
-          <summary>Is it suitable for daily use?</summary>
-          <div class="accordion__body"><p>Yes. The formula is lightweight and gentle, and it&rsquo;s designed to be used morning and night as part of a simple daily routine.</p></div>
-        </details>
-        <details>
-          <summary>Which skin types can use it?</summary>
-          <div class="accordion__body"><p>It suits most skin types, including dry, combination and sensitive skin. If you have very reactive skin, patch-test on your inner arm first.</p></div>
-        </details>
-        <details>
-          <summary>How long until I see results?</summary>
-          <div class="accordion__body"><p>Many customers notice softer, more hydrated skin within days. For tone and texture changes, give it 3&ndash;4 weeks of consistent use.</p></div>
-        </details>
-        <details>
-          <summary>What if it doesn&rsquo;t work for me?</summary>
-          <div class="accordion__body"><p>You&rsquo;re covered by our 30-Day Money-Back Guarantee. If you&rsquo;re not happy, contact us for a full refund &mdash; no questions asked.</p></div>
-        </details>
-        <details>
-          <summary>Can I use it with other skincare?</summary>
-          <div class="accordion__body"><p>Yes &mdash; apply it after cleansing and before moisturiser. If you use strong actives (retinol, exfoliating acids), introduce it gradually.</p></div>
-        </details>
+      <div class="faq__cols">
+        <div class="accordion accordion--faq">
+          <details open>
+            <summary>What is Dragonblood serum?</summary>
+            <div class="accordion__body"><p>A daily anti-ageing serum built around dragon blood extract, ceramide NP and glossy ganoderma, made to repair the skin barrier and restore a healthy glow as part of a daily routine.</p></div>
+          </details>
+          <details>
+            <summary>Is it suitable for daily use?</summary>
+            <div class="accordion__body"><p>Yes, it is designed to fit into a simple daily skincare routine, morning and night.</p></div>
+          </details>
+          <details>
+            <summary>What if it doesn&rsquo;t work for me?</summary>
+            <div class="accordion__body"><p>You&rsquo;re covered by our 30-Day Money-Back Guarantee &mdash; contact us for a full refund, no questions asked.</p></div>
+          </details>
+        </div>
+        <div class="accordion accordion--faq">
+          <details>
+            <summary>How do I use it?</summary>
+            <div class="accordion__body"><p>Apply 3&ndash;4 drops to clean skin morning and night, then follow with moisturiser and SPF in the morning.</p></div>
+          </details>
+          <details>
+            <summary>Can I use it with other skincare?</summary>
+            <div class="accordion__body"><p>In most routines yes &mdash; apply after cleansing, before moisturiser. Introduce gradually if you use strong actives.</p></div>
+          </details>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ FINAL GUARANTEE CTA ============ -->
   <section class="guarantee">
-    <div class="container guarantee__inner">
-      <div class="guarantee__seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="46" height="46"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+    <div class="container">
+      <div class="guarantee__card">
+        <div class="guarantee__media">
+          <img src="assets/img/serum-box.jpg" alt="Dragonblood Anti-Ageing Serum with packaging">
+        </div>
+        <div class="guarantee__copy">
+          <h2>Try Dragonblood</h2>
+          <p>A simple daily ritual for your skin, backed by our 30-Day Money-Back Guarantee.</p>
+          <a href="#offer" class="btn btn--primary js-scroll">Try Dragonblood <u>Risk-Free</u></a>
+        </div>
       </div>
-      <h2>Try Dragonblood Risk-Free</h2>
-      <p>A simple daily ritual for your skin, backed by our 30-Day Money-Back Guarantee.</p>
-      <a href="#offer" class="btn btn--light btn--lg js-scroll">Try Dragonblood Risk-Free</a>
     </div>
   </section>
 
@@ -366,13 +389,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
-          <a class="logo logo--footer" href="index.html">Dragon<span>blood</span><sup>®</sup></a>
-          <address>
-            Dragonblood Skincare<br>
-            1100 Example Ave<br>
-            Your City, ST 00000<br>
-            United States
-          </address>
+          <a class="logo logo--footer" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg> DRAGONBLOOD</a>
+          <p>* Results may vary from person to person. Testimonials reflect individual experiences and are not guaranteed outcomes.</p>
+          <p>* This product is a cosmetic and is not intended to diagnose, treat, cure or prevent any disease.</p>
+          <p>Discontinue use if irritation occurs, and consult a dermatologist if you have specific skin concerns.</p>
         </div>
         <div class="footer-col">
           <h4>Menu</h4>
@@ -386,20 +406,28 @@
           <a href="policies.html#shipping">Shipping Policy</a>
           <a href="policies.html#privacy">Privacy Policy</a>
           <a href="policies.html#terms">Terms of Service</a>
+          <a href="policies.html#cancellation">Cancellation Policy</a>
         </div>
         <div class="footer-col footer-col--news">
           <h4>Let&rsquo;s Stay Connected</h4>
           <p>Be first to know about new products and special savings.</p>
           <form class="newsletter" id="newsletterForm">
-            <input type="email" placeholder="Your email" required aria-label="Email address">
+            <input type="email" placeholder="Your Email" required aria-label="Email address">
             <button class="btn btn--primary" type="submit">Submit</button>
           </form>
           <p class="newsletter__thanks is-hidden" id="newsletterThanks">Thanks &mdash; you&rsquo;re on the list! 🎉</p>
+          <address>
+            Dragonblood Skincare<br>
+            1100 Example Ave<br>
+            Your City, ST 00000<br>
+            United States
+          </address>
         </div>
       </div>
       <div class="footer-legal">
-        <p>* Results may vary from person to person. Testimonials reflect individual experiences and are not guaranteed outcomes.</p>
-        <p>* This product is a cosmetic and is not intended to diagnose, treat, cure or prevent any disease. Discontinue use if irritation occurs, and consult a dermatologist if you have specific skin concerns.</p>
+        <div class="pay-icons pay-icons--footer" aria-label="Accepted payment methods">
+          <span>VISA</span><span>MC</span><span>AMEX</span><span>PayPal</span><span>&#63743; Pay</span><span>G Pay</span>
+        </div>
         <p class="copyright">© 2026 Dragonblood | All Rights Reserved</p>
       </div>
     </div>
@@ -423,12 +451,12 @@
       <button class="cart-drawer__close" id="cartClose" aria-label="Close cart">✕</button>
     </header>
     <div class="cart-drawer__body" id="cartBody">
-      <p class="cart-empty" id="cartEmpty">Your cart is empty.<br><button class="btn btn--ghost js-continue" id="continueShopping">Continue Shopping</button></p>
+      <p class="cart-empty" id="cartEmpty">Your Cart Is Empty<br><button class="btn btn--ghost js-continue" id="continueShopping">Continue Shopping</button></p>
       <ul class="cart-items" id="cartItems"></ul>
     </div>
     <footer class="cart-drawer__foot" id="cartFoot" hidden>
       <div class="cart-total"><span>Subtotal</span><b id="cartTotal">$0.00</b></div>
-      <p class="cart-note">Shipping calculated at checkout · 30-Day Money-Back Guarantee</p>
+      <p class="cart-note">Shipping calculated at checkout · 30 Day Money Back Guarantee</p>
       <button class="btn btn--primary btn--block" id="checkoutBtn">Checkout</button>
     </footer>
   </aside>

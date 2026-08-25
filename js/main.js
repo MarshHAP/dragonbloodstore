@@ -20,11 +20,11 @@
   tickCountdown();
   setInterval(tickCountdown, 1000);
 
-  /* ---------- mobile nav ---------- */
-  var navToggle = $("#navToggle"), siteNav = $("#siteNav");
-  if (navToggle && siteNav) {
+  /* ---------- menu drawer ---------- */
+  var navToggle = $("#navToggle"), menuDrawer = $("#menuDrawer");
+  if (navToggle && menuDrawer) {
     navToggle.addEventListener("click", function () {
-      var open = siteNav.classList.toggle("is-open");
+      var open = menuDrawer.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
@@ -39,8 +39,16 @@
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
-        siteNav && siteNav.classList.remove("is-open");
+        menuDrawer && menuDrawer.classList.remove("is-open");
       }
+    });
+  });
+
+  /* ---------- benefits accordion ---------- */
+  $$("#benefitsList .benefit-row").forEach(function (row) {
+    row.addEventListener("click", function () {
+      $$("#benefitsList .benefit-row").forEach(function (r) { r.classList.remove("is-active"); });
+      row.classList.add("is-active");
     });
   });
 
@@ -54,15 +62,32 @@
     });
   });
 
-  /* ---------- bundle selection ---------- */
-  var atcPrice = $("#atcPrice"), stickyPrice = $("#stickyPrice");
+  /* ---------- arrival date (order today → arrives in ~5 days) ---------- */
+  var arrival = $("#arrivalDate");
+  if (arrival) {
+    var d = new Date();
+    d.setDate(d.getDate() + 5);
+    arrival.textContent = d.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+  }
+
+  /* ---------- bundle + purchase-type selection ---------- */
+  var atcPrice = $("#atcPrice"), atcCompare = $("#atcCompare"), stickyPrice = $("#stickyPrice");
+  var SUBSCRIBE_DISCOUNT = 0.25;
+
+  function isSubscribe() {
+    var input = $("#purchaseToggle input[name=ptype]:checked");
+    return input && input.value === "subscribe";
+  }
   function selectedBundle() {
     var input = $("#bundles input:checked");
     if (!input) return null;
+    var base = parseFloat(input.getAttribute("data-price"));
+    var price = isSubscribe() ? base * (1 - SUBSCRIBE_DISCOUNT) : base;
     return {
-      id: input.value,
-      title: input.getAttribute("data-title"),
-      price: parseFloat(input.getAttribute("data-price")),
+      id: input.value + (isSubscribe() ? "-sub" : ""),
+      title: input.getAttribute("data-title") + (isSubscribe() ? " (Subscription)" : ""),
+      price: Math.round(price * 100) / 100,
+      compare: parseFloat(input.getAttribute("data-compare")),
       qty: parseInt(input.getAttribute("data-qty"), 10)
     };
   }
@@ -71,9 +96,10 @@
     if (!b) return;
     var label = "$" + b.price.toFixed(2);
     if (atcPrice) atcPrice.textContent = label;
+    if (atcCompare) atcCompare.textContent = "$" + b.compare.toFixed(2);
     if (stickyPrice) stickyPrice.textContent = label;
   }
-  $$("#bundles input").forEach(function (input) {
+  $$("#bundles input, #purchaseToggle input").forEach(function (input) {
     input.addEventListener("change", refreshOfferPrice);
   });
   refreshOfferPrice();
@@ -188,17 +214,6 @@
   }
 
   renderCart();
-
-  /* ---------- show more reviews ---------- */
-  var showMore = $("#showMoreReviews");
-  if (showMore) {
-    showMore.addEventListener("click", function () {
-      $$("#reviewWall .review-card.is-hidden").forEach(function (card) {
-        card.classList.remove("is-hidden");
-      });
-      showMore.style.display = "none";
-    });
-  }
 
   /* ---------- sticky mobile ATC ---------- */
   var stickyAtc = $("#stickyAtc"), offer = $("#offer");
