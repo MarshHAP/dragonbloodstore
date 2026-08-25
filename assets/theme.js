@@ -269,7 +269,7 @@
         } else {
           addToCartBtn.textContent = "Select a product in the theme editor";
           setTimeout(function () {
-            addToCartBtn.innerHTML = 'Add To Cart — <span id="atcPrice"></span> <s id="atcCompare"></s>';
+            addToCartBtn.innerHTML = 'Add To Cart - <span id="atcPrice"></span> <s id="atcCompare"></s>';
             atcPrice = $("#atcPrice"); atcCompare = $("#atcCompare");
             refreshOfferPrice();
           }, 2500);

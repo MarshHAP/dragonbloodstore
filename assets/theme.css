@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dragonblood® storefront — layout matched to a one-product DTC funnel,
+   Dragonblood® storefront - layout matched to a one-product DTC funnel,
    brand greens remapped to blood reds.
    ========================================================================== */
 
@@ -332,7 +332,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 .buybox__title { font-size: clamp(1.45rem, 2.6vw, 1.9rem); font-weight: 600; margin-bottom: 0.35rem; }
 .buybox__tagline { color: var(--ink-soft); margin-bottom: 1.3rem; font-size: 0.95rem; }
 
-/* bundles — kaching-style rows */
+/* bundles - kaching-style rows */
 .bundles { display: grid; gap: 0.65rem; margin-bottom: 1rem; }
 .bundle {
   position: relative;

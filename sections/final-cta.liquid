@@ -5,7 +5,7 @@
         {%- if section.settings.image -%}
           {{ section.settings.image | image_url: width: 1000 | image_tag: alt: section.settings.image.alt }}
         {%- else -%}
-          <img src="{{ 'serum-box.jpg' | asset_url }}" alt="Product with packaging" width="880" height="880">
+          <img src="{{ 'serum-front.jpg' | asset_url }}" alt="Product with packaging" width="880" height="880">
         {%- endif -%}
       </div>
       <div class="guarantee__copy">

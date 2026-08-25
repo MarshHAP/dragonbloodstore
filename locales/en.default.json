@@ -47,12 +47,12 @@
       "email": "Your email",
       "message": "How can we help?",
       "send": "Send Message",
-      "success": "Thanks — your message has been sent. We'll be in touch soon!"
+      "success": "Thanks - your message has been sent. We'll be in touch soon!"
     }
   },
   "newsletter": {
     "placeholder": "Your Email",
     "submit": "Submit",
-    "success": "Thanks — you're on the list!"
+    "success": "Thanks - you're on the list!"
   }
 }

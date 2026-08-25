@@ -15,7 +15,7 @@
               </button>
             {%- endfor -%}
           {%- else -%}
-            {%- assign fallbacks = 'serum-front.jpg,serum-box.jpg,serum-dropper.jpg,serum-benefits.jpg,serum-ingredients.jpg,serum-extract.jpg' | split: ',' -%}
+            {%- assign fallbacks = 'serum-front.jpg,serum-dropper.jpg,serum-benefits.jpg,serum-ingredients.jpg,serum-extract.jpg' | split: ',' -%}
             {%- for img in fallbacks -%}
               <button class="thumb{% if forloop.first %} is-active{% endif %}" data-src="{{ img | asset_url }}" aria-label="View image {{ forloop.index }}">
                 <img src="{{ img | asset_url }}" alt="" width="150" height="150">
@@ -103,9 +103,9 @@
         </div>
       {%- endif -%}
 
-      <p class="ship-line"><span class="ship-line__icon"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" style="vertical-align:-2px"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span> Ready to ship &mdash; arrives by <b id="arrivalDate"></b></p>
+      <p class="ship-line"><span class="ship-line__icon"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" style="vertical-align:-2px"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span> Ready to ship - arrives by <b id="arrivalDate"></b></p>
 
-      <button class="btn btn--primary btn--block btn--atc" id="addToCart">Add To Cart &mdash; <span id="atcPrice"></span> <s id="atcCompare"></s></button>
+      <button class="btn btn--primary btn--block btn--atc" id="addToCart">Add To Cart - <span id="atcPrice"></span> <s id="atcCompare"></s></button>
       <p class="atc-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
         {{ settings.guarantee_text }}
@@ -179,9 +179,9 @@
         { "type": "bundle" },
         { "type": "bundle", "settings": { "title": "Buy 2, Get 1 FREE", "quantity": 3, "price": "59.99", "compare_price": "119.97", "badge": "Most Popular", "preselected": true } },
         { "type": "bundle", "settings": { "title": "Buy 3, Get 2 FREE", "quantity": 5, "price": "89.99", "compare_price": "199.95", "badge": "Free Shipping", "badge_alt": true } },
-        { "type": "accordion", "settings": { "title": "Product Description", "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract — the deep-red resin of the dragon tree — combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3–4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>" } },
+        { "type": "accordion", "settings": { "title": "Product Description", "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract - the deep-red resin of the dragon tree - combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3–4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>" } },
         { "type": "accordion", "settings": { "title": "Frequently Asked Questions", "content": "<p><strong>Is it suitable for daily use?</strong><br>Yes. The formula is lightweight and gentle, designed for use morning and night.</p><p><strong>Which skin types can use it?</strong><br>Most skin types, including dry, combination and sensitive skin. Patch-test first if your skin is very reactive.</p>" } },
-        { "type": "accordion", "settings": { "title": "Shipping, Returns & Guarantees", "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3–5 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee — no questions asked.</p>" } }
+        { "type": "accordion", "settings": { "title": "Shipping, Returns & Guarantees", "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3–5 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee - no questions asked.</p>" } }
       ]
     }
   ]
