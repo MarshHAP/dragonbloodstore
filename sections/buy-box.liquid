@@ -9,13 +9,13 @@
       <div class="gallery">
         <div class="gallery__thumbs" id="galleryThumbs">
           {%- if product != blank and product.images.size > 0 -%}
-            {%- for image in product.images limit: 6 -%}
+            {%- for image in product.images limit: 10 -%}
               <button class="thumb{% if forloop.first %} is-active{% endif %}" data-src="{{ image | image_url: width: 1100 }}" aria-label="View image {{ forloop.index }}">
                 {{ image | image_url: width: 150 | image_tag: alt: '' }}
               </button>
             {%- endfor -%}
           {%- else -%}
-            {%- assign fallbacks = 'serum-front.jpg,serum-dropper.jpg,serum-benefits.jpg,serum-ingredients.jpg,serum-extract.jpg' | split: ',' -%}
+            {%- assign fallbacks = 'serum-front.jpg,serum-dropper.jpg,serum-benefits.jpg,serum-ingredients.jpg,serum-extract.jpg,benefit-1.jpg,benefit-2.jpg,benefit-3.jpg,benefit-4.jpg' | split: ',' -%}
             {%- for img in fallbacks -%}
               <button class="thumb{% if forloop.first %} is-active{% endif %}" data-src="{{ img | asset_url }}" aria-label="View image {{ forloop.index }}">
                 <img src="{{ img | asset_url }}" alt="" width="150" height="150">

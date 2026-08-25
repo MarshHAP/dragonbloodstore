@@ -373,11 +373,19 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   align-items: start;
 }
 .gallery { display: grid; grid-template-columns: 64px 1fr 128px; gap: 0.7rem; }
-.gallery__thumbs { display: flex; flex-direction: column; gap: 0.55rem; }
+.gallery__thumbs {
+  display: flex; flex-direction: column; gap: 0.55rem;
+  height: 0; min-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+.gallery__thumbs::-webkit-scrollbar { display: none; }
 .thumb {
   border: 1.5px solid transparent; border-radius: 8px;
   overflow: hidden; padding: 0; background: #fff;
   outline: 1px solid var(--sage);
+  flex: none;
 }
 .thumb img { aspect-ratio: 1; object-fit: cover; width: 100%; }
 .thumb.is-active { border-color: var(--red-900); outline: none; }
