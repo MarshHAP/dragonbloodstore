@@ -78,6 +78,14 @@
     reviewTrack && reviewTrack.scrollBy({ left: carouselStep(), behavior: "smooth" });
   });
 
+  /* ---------- before / after slider ---------- */
+  var baSlider = $("#baSlider"), baRange = $("#baRange");
+  if (baSlider && baRange) {
+    baRange.addEventListener("input", function () {
+      baSlider.style.setProperty("--pos", baRange.value + "%");
+    });
+  }
+
   /* ---------- product gallery ---------- */
   var galleryMain = $("#galleryMain");
   $$("#galleryThumbs .thumb").forEach(function (thumb) {

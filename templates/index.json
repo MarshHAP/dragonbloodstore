@@ -297,6 +297,10 @@
     "cta": {
       "type": "final-cta",
       "settings": {}
+    },
+    "beforeafter": {
+      "type": "before-after",
+      "settings": {}
     }
   },
   "order": [
@@ -304,6 +308,7 @@
     "testimonials",
     "benefits",
     "buybox",
+    "beforeafter",
     "ritual",
     "wall",
     "faq",
