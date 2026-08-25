@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Track Order | Dragonblood®</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Dragon<span>blood</span><sup>®</sup></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html#offer">Shop</a>
+        <a href="policies.html">Policies</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container page__inner">
+      <h1>Contact Us</h1>
+      <p>Questions about your order or our serum? We&rsquo;d love to help. Send us a message and we&rsquo;ll get back to you within one business day.</p>
+
+      <div class="contact-card">
+        <form id="contactForm">
+          <input type="text" placeholder="Your name" required aria-label="Your name">
+          <input type="email" placeholder="Your email" required aria-label="Your email">
+          <input type="text" placeholder="Order number (optional)" aria-label="Order number">
+          <textarea placeholder="How can we help?" required aria-label="Message"></textarea>
+          <button class="btn btn--primary" type="submit">Send Message</button>
+        </form>
+        <p class="newsletter__thanks is-hidden" id="contactThanks">Thanks — your message has been sent. We&rsquo;ll be in touch soon!</p>
+      </div>
+
+      <h2 id="track-order">Track Your Order</h2>
+      <p>Once your order ships you&rsquo;ll receive an email with a tracking number. Enter it with your carrier, or reach out with your order number and we&rsquo;ll check the status for you.</p>
+
+      <h2>Our Details</h2>
+      <p>
+        Dragonblood Skincare<br>
+        1100 Example Ave, Your City, ST 00000, United States<br>
+        support@dragonblood.example
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-legal">
+        <p class="copyright">© 2026 Dragonblood | All Rights Reserved · <a href="index.html">Home</a> · <a href="policies.html">Policies</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      this.classList.add("is-hidden");
+      document.getElementById("contactThanks").classList.remove("is-hidden");
+    });
+  </script>
+</body>
+</html>
