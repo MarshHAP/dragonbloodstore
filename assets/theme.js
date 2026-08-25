@@ -47,12 +47,29 @@
     });
   });
 
-  /* ---------- benefits accordion ---------- */
+  /* ---------- benefits accordion (with image switching) ---------- */
+  var benefitsImage = $("#benefitsImage");
   $$("#benefitsList .benefit-row").forEach(function (row) {
     row.addEventListener("click", function () {
       $$("#benefitsList .benefit-row").forEach(function (r) { r.classList.remove("is-active"); });
       row.classList.add("is-active");
+      var img = row.getAttribute("data-image");
+      if (benefitsImage && img) benefitsImage.src = img;
     });
+  });
+
+  /* ---------- review carousel ---------- */
+  var reviewTrack = $("#reviewTrack");
+  function carouselStep() {
+    if (!reviewTrack) return 0;
+    var card = reviewTrack.querySelector(".review-card");
+    return card ? card.getBoundingClientRect().width + 18 : 0;
+  }
+  $("#revPrev") && $("#revPrev").addEventListener("click", function () {
+    reviewTrack && reviewTrack.scrollBy({ left: -carouselStep(), behavior: "smooth" });
+  });
+  $("#revNext") && $("#revNext").addEventListener("click", function () {
+    reviewTrack && reviewTrack.scrollBy({ left: carouselStep(), behavior: "smooth" });
   });
 
   /* ---------- product gallery ---------- */
@@ -97,9 +114,9 @@
   function refreshOfferPrice() {
     var b = selectedBundle();
     if (!b) return;
-    var label = "$" + b.price.toFixed(2);
+    var label = "£" + b.price.toFixed(2);
     if (atcPrice) atcPrice.textContent = label;
-    if (atcCompare) atcCompare.textContent = "$" + b.compare.toFixed(2);
+    if (atcCompare) atcCompare.textContent = "£" + b.compare.toFixed(2);
     if (stickyPrice) stickyPrice.textContent = label;
   }
   $$("#bundles input, #purchaseToggle input").forEach(function (input) {
@@ -139,7 +156,7 @@
   cartOverlay && cartOverlay.addEventListener("click", closeCart);
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeCart(); });
 
-  function money(n) { return "$" + n.toFixed(2); }
+  function money(n) { return "£" + n.toFixed(2); }
 
   /* ================= SHOPIFY CART MODE ================= */
   function renderShopifyCart(cart) {

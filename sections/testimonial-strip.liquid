@@ -2,7 +2,11 @@
   <div class="container">
     <div class="stars stars--lead" aria-hidden="true">★★★★★</div>
     <h2 class="section-title">{{ section.settings.heading }}</h2>
-    <div class="testimonial-grid">
+    <div class="carousel-nav">
+      <button id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button id="revNext" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="testimonial-track" id="reviewTrack">
       {%- for block in section.blocks -%}
         <article class="review-card" {{ block.shopify_attributes }}>
           <div class="review-card__top"><span class="review-score">{{ block.settings.score }}</span><span class="stars">★★★★★</span></div>
@@ -38,7 +42,7 @@
       ]
     }
   ],
-  "max_blocks": 3,
+  "max_blocks": 8,
   "presets": [
     {
       "name": "Testimonial strip",

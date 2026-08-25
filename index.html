@@ -35,7 +35,7 @@
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <a class="logo" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="15" height="15"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg> DRAGONBLOOD</a>
+      <a class="logo" href="index.html"><svg viewBox="0 0 100 100" fill="currentColor" width="18" height="18"><path d="M 60 3 C 42 8, 29 22, 27 37 C 25.5 48, 30 57, 40 63 C 46 67, 49.5 72, 49 79 C 48.5 86, 44 92, 36 96.5 C 55 92, 69 79, 71 64 C 72.5 53, 67 45, 56.5 39.5 C 52 37.1, 48.9 34.9, 47.5 32.4 C 48.9 32.7, 48.7 31.9, 48.2 31.3 C 49.7 30.6, 49.7 29.5, 48.6 29.0 C 49.9 28.3, 49.9 27.6, 49.2 27.0 C 51.5 26.0, 52.0 24.9, 51.2 24.0 C 50.3 23.3, 50.0 23.0, 49.9 22.4 C 49.9 21.2, 50.3 20.5, 50.1 19.7 C 51.8 17.4, 52.4 14.8, 52.2 12.6 C 52.8 8.4, 56.0 4.8, 60 3 Z"/></svg> SADOER</a>
       <button class="cart-btn" id="cartOpen" aria-label="Open cart">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="22" height="22"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
         <span class="cart-count" id="cartCount">0</span>
@@ -45,6 +45,7 @@
       <a href="science.html">Science</a>
       <a href="contact.html#track-order">Track Order</a>
       <a href="contact.html">Contact</a>
+      <a href="manage-subscription.html">Manage Subscription</a>
       <a href="policies.html">Policies</a>
       <a href="#reviews" class="js-scroll">Reviews</a>
     </nav>
@@ -53,18 +54,17 @@
   <!-- ============ HERO BANNER ============ -->
   <section class="hero">
     <div class="container">
-      <div class="hero__banner">
-        <img class="hero__photo" src="assets/serum-dropper.jpg" alt="" aria-hidden="true">
-        <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__banner hero__banner--home">
         <div class="hero__content">
           <h1>Radiant Skin,<br>Powered by Nature</h1>
           <p class="hero__sub">A daily botanical serum that helps repair your skin barrier and restore a healthy glow.</p>
-          <a href="#offer" class="btn btn--primary js-scroll">Try Dragonblood <u>Risk-Free</u></a>
+          <a href="#offer" class="btn btn--hero js-scroll">Try Dragonblood <u>Risk-Free</u></a>
           <div class="guarantee-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
             30 Day Money Back Guarantee
           </div>
         </div>
+        <img class="hero__product" src="assets/serum-dropper.jpg" alt="Dragonblood Anti-Ageing Serum with dropper" width="1100" height="1100">
       </div>
     </div>
   </section>
@@ -74,7 +74,11 @@
     <div class="container">
       <div class="stars stars--lead" aria-hidden="true">★★★★★</div>
       <h2 class="section-title">What Customers Are Saying</h2>
-      <div class="testimonial-grid">
+      <div class="carousel-nav">
+        <button id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button id="revNext" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <div class="testimonial-track" id="reviewTrack">
         <article class="review-card">
           <div class="review-card__top"><span class="review-score">4.9</span><span class="stars">★★★★★</span></div>
           <h3>Glowing again</h3>
@@ -103,25 +107,25 @@
       <h2 class="section-title">The Benefits of Using Dragonblood</h2>
       <div class="benefits__grid">
         <div class="benefits__list" id="benefitsList">
-          <button class="benefit-row is-active" data-benefit="0">
+          <button class="benefit-row is-active" data-benefit="0" data-image="assets/serum-benefits.jpg">
             <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span> Repairs the Skin Barrier</span>
             <span class="benefit-row__body">Dragon blood extract and ceramide NP help strengthen and repair your skin&rsquo;s natural protective barrier.</span>
           </button>
-          <button class="benefit-row" data-benefit="1">
+          <button class="benefit-row" data-benefit="1" data-image="assets/serum-ingredients.jpg">
             <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span> Deep, Lasting Hydration</span>
             <span class="benefit-row__body">Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.</span>
           </button>
-          <button class="benefit-row" data-benefit="2">
-            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"/></svg></span> Brightens &amp; Evens Tone</span>
-            <span class="benefit-row__body">A focused botanical formula that helps fade dullness and bring back a healthy, even glow.</span>
+          <button class="benefit-row" data-benefit="2" data-image="assets/serum-dropper.jpg">
+            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3v4h-4"/></svg></span> An Easy Daily Habit</span>
+            <span class="benefit-row__body">A few drops, morning and night. Simple to use every day and easy to fit into your routine.</span>
           </button>
-          <button class="benefit-row" data-benefit="3">
-            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15Z"/><path d="M5 19c3-5 7-8 11-10"/></svg></span> A Simple Botanical Formula</span>
-            <span class="benefit-row__body">Lightweight, fast-absorbing and gentle enough for daily use - a few drops, morning and night.</span>
+          <button class="benefit-row" data-benefit="3" data-image="assets/tree-3.jpg">
+            <span class="benefit-row__head"><span class="benefit-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 21v-8"/><path d="M12 13c0-4 3-7 8-7 0 4-3 7-8 7Z"/><path d="M12 13c0-3-2.5-5.5-7-5.5 0 3.5 2.5 5.5 7 5.5Z"/></svg></span> A Sacred Natural Formula</span>
+            <span class="benefit-row__body">A clean, focused formula built around resin from the sacred dragon blood tree.</span>
           </button>
         </div>
         <div class="benefits__media">
-          <img src="assets/serum-extract.jpg" alt="Dragon blood tree - the source of dragon blood extract">
+          <img id="benefitsImage" src="assets/serum-benefits.jpg" alt="Dragonblood serum benefits" width="880" height="880">
         </div>
       </div>
       <div class="section-cta">
@@ -202,27 +206,27 @@
         <!-- Bundle selector -->
         <div class="bundles" id="bundles" role="radiogroup" aria-label="Choose your bundle">
           <label class="bundle">
-            <input type="radio" name="bundle" value="buy1" data-title="Buy One" data-price="29.99" data-compare="39.99" data-qty="1">
+            <input type="radio" name="bundle" value="buy1" data-title="Buy One" data-price="22.50" data-compare="30.00" data-qty="1">
             <span class="bundle__check" aria-hidden="true"></span>
             <span class="bundle__bottles" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
             <span class="bundle__name">Buy One</span>
-            <span class="bundle__right"><b class="bundle__price">$29.99</b><s class="bundle__compare">$39.99</s></span>
+            <span class="bundle__right"><b class="bundle__price">£22.50</b><s class="bundle__compare">£30.00</s></span>
           </label>
           <label class="bundle">
-            <input type="radio" name="bundle" value="buy2" data-title="Buy 2, Get 1 FREE" data-price="59.99" data-compare="119.97" data-qty="3" checked>
+            <input type="radio" name="bundle" value="buy2" data-title="Buy 2, Get 1 FREE" data-price="45.00" data-compare="60.00" data-qty="3" checked>
             <span class="bundle__flag">Most Popular</span>
             <span class="bundle__check" aria-hidden="true"></span>
             <span class="bundle__bottles" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
             <span class="bundle__name">Buy 2, Get 1 FREE</span>
-            <span class="bundle__right"><b class="bundle__price">$59.99</b><s class="bundle__compare">$119.97</s></span>
+            <span class="bundle__right"><b class="bundle__price">£45.00</b><s class="bundle__compare">£60.00</s></span>
           </label>
           <label class="bundle">
-            <input type="radio" name="bundle" value="buy3" data-title="Buy 3, Get 2 FREE" data-price="89.99" data-compare="199.95" data-qty="5">
+            <input type="radio" name="bundle" value="buy3" data-title="Buy 3, Get 2 FREE" data-price="67.50" data-compare="90.00" data-qty="5">
             <span class="bundle__flag bundle__flag--alt">Free Shipping</span>
             <span class="bundle__check" aria-hidden="true"></span>
             <span class="bundle__bottles" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
             <span class="bundle__name">Buy 3, Get 2 FREE</span>
-            <span class="bundle__right"><b class="bundle__price">$89.99</b><s class="bundle__compare">$199.95</s></span>
+            <span class="bundle__right"><b class="bundle__price">£67.50</b><s class="bundle__compare">£90.00</s></span>
           </label>
         </div>
 
@@ -391,7 +395,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
-          <a class="logo logo--footer" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg> DRAGONBLOOD</a>
+          <a class="logo logo--footer" href="index.html"><svg viewBox="0 0 100 100" fill="currentColor" width="17" height="17"><path d="M 60 3 C 42 8, 29 22, 27 37 C 25.5 48, 30 57, 40 63 C 46 67, 49.5 72, 49 79 C 48.5 86, 44 92, 36 96.5 C 55 92, 69 79, 71 64 C 72.5 53, 67 45, 56.5 39.5 C 52 37.1, 48.9 34.9, 47.5 32.4 C 48.9 32.7, 48.7 31.9, 48.2 31.3 C 49.7 30.6, 49.7 29.5, 48.6 29.0 C 49.9 28.3, 49.9 27.6, 49.2 27.0 C 51.5 26.0, 52.0 24.9, 51.2 24.0 C 50.3 23.3, 50.0 23.0, 49.9 22.4 C 49.9 21.2, 50.3 20.5, 50.1 19.7 C 51.8 17.4, 52.4 14.8, 52.2 12.6 C 52.8 8.4, 56.0 4.8, 60 3 Z"/></svg> SADOER</a>
           <p>* Results may vary from person to person. Testimonials reflect individual experiences and are not guaranteed outcomes.</p>
           <p>* This product is a cosmetic and is not intended to diagnose, treat, cure or prevent any disease.</p>
           <p>Discontinue use if irritation occurs, and consult a dermatologist if you have specific skin concerns.</p>
@@ -401,6 +405,7 @@
           <a href="science.html">Science</a>
           <a href="contact.html#track-order">Track Order</a>
           <a href="contact.html">Contact</a>
+          <a href="manage-subscription.html">Manage Subscription</a>
           <a href="#reviews" class="js-scroll">Reviews</a>
         </div>
         <div class="footer-col">
@@ -441,7 +446,7 @@
     <img src="assets/serum-front.jpg" alt="">
     <div class="sticky-atc__info">
       <b>Dragonblood® Serum</b>
-      <span id="stickyPrice">$59.99</span>
+      <span id="stickyPrice">£45.00</span>
     </div>
     <a href="#offer" class="btn btn--primary js-scroll">Get Offer</a>
   </div>

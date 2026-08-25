@@ -2,6 +2,8 @@
 {%- assign icon_drop = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>' -%}
 {%- assign icon_sparkle = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"/></svg>' -%}
 {%- assign icon_leaf = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15Z"/><path d="M5 19c3-5 7-8 11-10"/></svg>' -%}
+{%- assign icon_refresh = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3v4h-4"/></svg>' -%}
+{%- assign icon_sprout = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 21v-8"/><path d="M12 13c0-4 3-7 8-7 0 4-3 7-8 7Z"/><path d="M12 13c0-3-2.5-5.5-7-5.5 0 3.5 2.5 5.5 7 5.5Z"/></svg>' -%}
 
 <section class="benefits">
   <div class="container">
@@ -9,13 +11,20 @@
     <div class="benefits__grid">
       <div class="benefits__list" id="benefitsList">
         {%- for block in section.blocks -%}
-          <button class="benefit-row{% if forloop.first %} is-active{% endif %}" data-benefit="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+            {%- assign row_img = block.settings.image | image_url: width: 1100 -%}
+          {%- else -%}
+            {%- assign row_img = block.settings.fallback_image | asset_url -%}
+          {%- endif -%}
+          <button class="benefit-row{% if forloop.first %} is-active{% endif %}" data-benefit="{{ forloop.index0 }}" data-image="{{ row_img }}" {{ block.shopify_attributes }}>
             <span class="benefit-row__head">
               <span class="benefit-row__icon">
                 {%- case block.settings.icon -%}
                   {%- when 'shield' -%}{{ icon_shield }}
                   {%- when 'drop' -%}{{ icon_drop }}
                   {%- when 'sparkle' -%}{{ icon_sparkle }}
+                  {%- when 'refresh' -%}{{ icon_refresh }}
+                  {%- when 'sprout' -%}{{ icon_sprout }}
                   {%- else -%}{{ icon_leaf }}
                 {%- endcase -%}
               </span>
@@ -26,10 +35,11 @@
         {%- endfor -%}
       </div>
       <div class="benefits__media">
-        {%- if section.settings.image -%}
-          {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.image.alt }}
+        {%- assign first = section.blocks | first -%}
+        {%- if first.settings.image -%}
+          {{ first.settings.image | image_url: width: 1200 | image_tag: id: 'benefitsImage', alt: first.settings.title }}
         {%- else -%}
-          <img src="{{ 'serum-extract.jpg' | asset_url }}" alt="Dragon blood tree - the source of dragon blood extract" width="880" height="880">
+          <img id="benefitsImage" src="{{ first.settings.fallback_image | default: 'serum-benefits.jpg' | asset_url }}" alt="{{ first.settings.title | escape }}" width="880" height="880">
         {%- endif -%}
       </div>
     </div>
@@ -48,7 +58,6 @@
   "name": "Benefits accordion",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "The Benefits of Using Dragonblood" },
-    { "type": "image_picker", "id": "image", "label": "Image", "info": "Falls back to the bundled dragon blood tree photo." },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Try Dragonblood" }
   ],
   "blocks": [
@@ -64,12 +73,16 @@
             { "value": "shield", "label": "Shield" },
             { "value": "drop", "label": "Drop" },
             { "value": "sparkle", "label": "Sparkle" },
-            { "value": "leaf", "label": "Leaf" }
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "refresh", "label": "Refresh (daily habit)" },
+            { "value": "sprout", "label": "Sprout (natural)" }
           ],
           "default": "shield"
         },
         { "type": "text", "id": "title", "label": "Title", "default": "Repairs the Skin Barrier" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Dragon blood extract and ceramide NP help strengthen and repair your skin's natural protective barrier." }
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Dragon blood extract and ceramide NP help strengthen and repair your skin's natural protective barrier." },
+        { "type": "image_picker", "id": "image", "label": "Image (shown when this benefit is selected)" },
+        { "type": "text", "id": "fallback_image", "label": "Fallback asset filename", "default": "serum-benefits.jpg", "info": "Used when no image is picked." }
       ]
     }
   ],
@@ -79,9 +92,9 @@
       "name": "Benefits accordion",
       "blocks": [
         { "type": "benefit" },
-        { "type": "benefit", "settings": { "icon": "drop", "title": "Deep, Lasting Hydration", "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night." } },
-        { "type": "benefit", "settings": { "icon": "sparkle", "title": "Brightens & Evens Tone", "text": "A focused botanical formula that helps fade dullness and bring back a healthy, even glow." } },
-        { "type": "benefit", "settings": { "icon": "leaf", "title": "A Simple Botanical Formula", "text": "Lightweight, fast-absorbing and gentle enough for daily use - a few drops, morning and night." } }
+        { "type": "benefit", "settings": { "icon": "drop", "title": "Deep, Lasting Hydration", "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.", "fallback_image": "serum-ingredients.jpg" } },
+        { "type": "benefit", "settings": { "icon": "refresh", "title": "An Easy Daily Habit", "text": "A few drops, morning and night. Simple to use every day and easy to fit into your routine.", "fallback_image": "serum-dropper.jpg" } },
+        { "type": "benefit", "settings": { "icon": "sprout", "title": "A Sacred Natural Formula", "text": "A clean, focused formula built around resin from the sacred dragon blood tree.", "fallback_image": "tree-3.jpg" } }
       ]
     }
   ]

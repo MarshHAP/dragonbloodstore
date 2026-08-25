@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-manage-subscription",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

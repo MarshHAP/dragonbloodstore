@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Subscription | Dragonblood®</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html"><svg viewBox="0 0 100 100" fill="currentColor" width="18" height="18"><path d="M 60 3 C 42 8, 29 22, 27 37 C 25.5 48, 30 57, 40 63 C 46 67, 49.5 72, 49 79 C 48.5 86, 44 92, 36 96.5 C 55 92, 69 79, 71 64 C 72.5 53, 67 45, 56.5 39.5 C 52 37.1, 48.9 34.9, 47.5 32.4 C 48.9 32.7, 48.7 31.9, 48.2 31.3 C 49.7 30.6, 49.7 29.5, 48.6 29.0 C 49.9 28.3, 49.9 27.6, 49.2 27.0 C 51.5 26.0, 52.0 24.9, 51.2 24.0 C 50.3 23.3, 50.0 23.0, 49.9 22.4 C 49.9 21.2, 50.3 20.5, 50.1 19.7 C 51.8 17.4, 52.4 14.8, 52.2 12.6 C 52.8 8.4, 56.0 4.8, 60 3 Z"/></svg> SADOER</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html#offer">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="subscription-card">
+        <h1>Request Subscription Login Link</h1>
+        <p>Provide your email below which you used for purchasing the subscription. We will send a magic link to your email that will sign you in instantly.</p>
+        <form class="subscription-form" id="subscriptionForm">
+          <input type="email" placeholder="Your email address" required aria-label="Your email address">
+          <button class="btn btn--primary" type="submit">Send Subscription Login Link</button>
+        </form>
+        <p class="newsletter__thanks is-hidden" id="subscriptionThanks">If a subscription exists for that email, a login link is on its way. Check your inbox!</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-legal">
+        <p class="copyright">© 2026 Dragonblood | All Rights Reserved · <a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="policies.html">Policies</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("subscriptionForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      this.classList.add("is-hidden");
+      document.getElementById("subscriptionThanks").classList.remove("is-hidden");
+    });
+  </script>
+</body>
+</html>

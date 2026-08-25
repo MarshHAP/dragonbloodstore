@@ -84,7 +84,7 @@
               <span class="bundle__check" aria-hidden="true"></span>
               <span class="bundle__bottles" aria-hidden="true">{% for i in (1..block.settings.quantity) %}{{ drop_icon }}{% endfor %}</span>
               <span class="bundle__name">{{ block.settings.title }}</span>
-              <span class="bundle__right"><b class="bundle__price">${{ block.settings.price }}</b><s class="bundle__compare">${{ block.settings.compare_price }}</s></span>
+              <span class="bundle__right"><b class="bundle__price">£{{ block.settings.price }}</b><s class="bundle__compare">£{{ block.settings.compare_price }}</s></span>
             </label>
           {%- endif -%}
         {%- endfor -%}
@@ -135,8 +135,8 @@
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Buy One" },
         { "type": "range", "id": "quantity", "label": "Bottles in bundle", "min": 1, "max": 6, "step": 1, "default": 1 },
-        { "type": "text", "id": "price", "label": "Price (number only)", "default": "29.99" },
-        { "type": "text", "id": "compare_price", "label": "Compare-at price (number only)", "default": "39.99" },
+        { "type": "text", "id": "price", "label": "Price (number only)", "default": "22.50" },
+        { "type": "text", "id": "compare_price", "label": "Compare-at price (number only)", "default": "30.00" },
         { "type": "text", "id": "badge", "label": "Badge (optional)" },
         { "type": "checkbox", "id": "badge_alt", "label": "Use alternate badge colour", "default": false },
         { "type": "checkbox", "id": "preselected", "label": "Preselected", "default": false }
@@ -177,8 +177,8 @@
         { "type": "feature", "settings": { "icon": "leaf", "title": "Natural Botanical Formula" } },
         { "type": "feature", "settings": { "icon": "sparkle", "title": "For a Feel-Good Routine" } },
         { "type": "bundle" },
-        { "type": "bundle", "settings": { "title": "Buy 2, Get 1 FREE", "quantity": 3, "price": "59.99", "compare_price": "119.97", "badge": "Most Popular", "preselected": true } },
-        { "type": "bundle", "settings": { "title": "Buy 3, Get 2 FREE", "quantity": 5, "price": "89.99", "compare_price": "199.95", "badge": "Free Shipping", "badge_alt": true } },
+        { "type": "bundle", "settings": { "title": "Buy 2, Get 1 FREE", "quantity": 3, "price": "45.00", "compare_price": "60.00", "badge": "Most Popular", "preselected": true } },
+        { "type": "bundle", "settings": { "title": "Buy 3, Get 2 FREE", "quantity": 5, "price": "67.50", "compare_price": "90.00", "badge": "Free Shipping", "badge_alt": true } },
         { "type": "accordion", "settings": { "title": "Product Description", "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract - the deep-red resin of the dragon tree - combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3–4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>" } },
         { "type": "accordion", "settings": { "title": "Frequently Asked Questions", "content": "<p><strong>Is it suitable for daily use?</strong><br>Yes. The formula is lightweight and gentle, designed for use morning and night.</p><p><strong>Which skin types can use it?</strong><br>Most skin types, including dry, combination and sensitive skin. Patch-test first if your skin is very reactive.</p>" } },
         { "type": "accordion", "settings": { "title": "Shipping, Returns & Guarantees", "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3–5 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee - no questions asked.</p>" } }

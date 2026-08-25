@@ -1,0 +1,35 @@
+<section class="page">
+  <div class="container">
+    <div class="subscription-card">
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.text }}</p>
+      {%- if section.settings.portal_url != blank -%}
+        <form class="subscription-form" action="{{ section.settings.portal_url }}" method="get">
+          <input type="email" name="email" placeholder="{{ section.settings.placeholder }}" required aria-label="{{ section.settings.placeholder }}">
+          <button class="btn btn--primary" type="submit">{{ section.settings.button_label }}</button>
+        </form>
+      {%- else -%}
+        <form class="subscription-form" id="subscriptionForm" onsubmit="event.preventDefault(); this.classList.add('is-hidden'); document.getElementById('subscriptionThanks').classList.remove('is-hidden');">
+          <input type="email" placeholder="{{ section.settings.placeholder }}" required aria-label="{{ section.settings.placeholder }}">
+          <button class="btn btn--primary" type="submit">{{ section.settings.button_label }}</button>
+        </form>
+        <p class="newsletter__thanks is-hidden" id="subscriptionThanks">{{ section.settings.confirmation }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Manage subscription",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Request Subscription Login Link" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Provide your email below which you used for purchasing the subscription. We will send a magic link to your email that will sign you in instantly." },
+    { "type": "text", "id": "placeholder", "label": "Input placeholder", "default": "Your email address" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Send Subscription Login Link" },
+    { "type": "textarea", "id": "confirmation", "label": "Confirmation message (no portal URL set)", "default": "If a subscription exists for that email, a login link is on its way. Check your inbox!" },
+    { "type": "url", "id": "portal_url", "label": "Subscription portal URL", "info": "Set this to your subscription app's customer portal login page (e.g. from Seal, Recharge or Appstle). Until then the form shows the confirmation message only." }
+  ],
+  "presets": [{ "name": "Manage subscription" }]
+}
+{% endschema %}

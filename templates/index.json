@@ -40,30 +40,35 @@
       "blocks": {
         "b1": {
           "type": "benefit",
-          "settings": {}
+          "settings": {
+            "fallback_image": "serum-benefits.jpg"
+          }
         },
         "b2": {
           "type": "benefit",
           "settings": {
             "icon": "drop",
             "title": "Deep, Lasting Hydration",
-            "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night."
+            "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.",
+            "fallback_image": "serum-ingredients.jpg"
           }
         },
         "b3": {
           "type": "benefit",
           "settings": {
-            "icon": "sparkle",
-            "title": "Brightens & Evens Tone",
-            "text": "A focused botanical formula that helps fade dullness and bring back a healthy, even glow."
+            "icon": "refresh",
+            "title": "An Easy Daily Habit",
+            "text": "A few drops, morning and night. Simple to use every day and easy to fit into your routine.",
+            "fallback_image": "serum-dropper.jpg"
           }
         },
         "b4": {
           "type": "benefit",
           "settings": {
-            "icon": "leaf",
-            "title": "A Simple Botanical Formula",
-            "text": "Lightweight, fast-absorbing and gentle enough for daily use \u2014 a few drops, morning and night."
+            "icon": "sprout",
+            "title": "A Sacred Natural Formula",
+            "text": "A clean, focused formula built around resin from the sacred dragon blood tree.",
+            "fallback_image": "tree-3.jpg"
           }
         }
       },
@@ -98,15 +103,20 @@
         },
         "p1": {
           "type": "bundle",
-          "settings": {}
+          "settings": {
+            "title": "Buy One",
+            "quantity": 1,
+            "price": "22.50",
+            "compare_price": "30.00"
+          }
         },
         "p2": {
           "type": "bundle",
           "settings": {
             "title": "Buy 2, Get 1 FREE",
             "quantity": 3,
-            "price": "59.99",
-            "compare_price": "119.97",
+            "price": "45.00",
+            "compare_price": "60.00",
             "badge": "Most Popular",
             "preselected": true
           }
@@ -116,8 +126,8 @@
           "settings": {
             "title": "Buy 3, Get 2 FREE",
             "quantity": 5,
-            "price": "89.99",
-            "compare_price": "199.95",
+            "price": "67.50",
+            "compare_price": "90.00",
             "badge": "Free Shipping",
             "badge_alt": true
           }
@@ -126,7 +136,7 @@
           "type": "accordion",
           "settings": {
             "title": "Product Description",
-            "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract \u2014 the deep-red resin of the dragon tree \u2014 combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3\u20134 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>"
+            "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract — the deep-red resin of the dragon tree — combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3–4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>"
           }
         },
         "a2": {
@@ -140,7 +150,7 @@
           "type": "accordion",
           "settings": {
             "title": "Shipping, Returns & Guarantees",
-            "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3\u20135 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee \u2014 no questions asked.</p>"
+            "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3–5 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee — no questions asked.</p>"
           }
         }
       },
@@ -203,7 +213,7 @@
         "w3": {
           "type": "review",
           "settings": {
-            "quote": "Love that it's just a few drops. No ten-step routine, no fuss \u2014 fits right into my day.",
+            "quote": "Love that it's just a few drops. No ten-step routine, no fuss — fits right into my day.",
             "name": "Jordan"
           }
         },
@@ -257,21 +267,21 @@
           "type": "question",
           "settings": {
             "question": "What if it doesn't work for me?",
-            "answer": "You're covered by our 30-Day Money-Back Guarantee \u2014 contact us for a full refund, no questions asked."
+            "answer": "You're covered by our 30-Day Money-Back Guarantee — contact us for a full refund, no questions asked."
           }
         },
         "q4": {
           "type": "question",
           "settings": {
             "question": "How do I use it?",
-            "answer": "Apply 3\u20134 drops to clean skin morning and night, then follow with moisturiser and SPF in the morning."
+            "answer": "Apply 3–4 drops to clean skin morning and night, then follow with moisturiser and SPF in the morning."
           }
         },
         "q5": {
           "type": "question",
           "settings": {
             "question": "Can I use it with other skincare?",
-            "answer": "In most routines yes \u2014 apply after cleansing, before moisturiser. Introduce gradually if you use strong actives."
+            "answer": "In most routines yes — apply after cleansing, before moisturiser. Introduce gradually if you use strong actives."
           }
         }
       },
