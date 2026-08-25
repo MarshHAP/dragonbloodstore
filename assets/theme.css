@@ -541,7 +541,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   aspect-ratio: 1;
   border-radius: var(--radius);
   overflow: hidden;
-  --pos: 50%;
+  --pos: 25%;
   touch-action: none;
   user-select: none;
 }
