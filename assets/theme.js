@@ -81,6 +81,35 @@
   /* ---------- before / after slider ---------- */
   var baSlider = $("#baSlider"), baRange = $("#baRange");
   if (baSlider && baRange) {
+    var baSetPos = function (pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      baSlider.style.setProperty("--pos", pct + "%");
+      baRange.value = pct;
+    };
+    var baPosFromEvent = function (e) {
+      var rect = baSlider.getBoundingClientRect();
+      return ((e.clientX - rect.left) / rect.width) * 100;
+    };
+    var baDragging = false;
+    baSlider.addEventListener("pointerdown", function (e) {
+      baDragging = true;
+      baSlider.classList.add("is-dragging");
+      if (baSlider.setPointerCapture) {
+        try { baSlider.setPointerCapture(e.pointerId); } catch (err) {}
+      }
+      baSetPos(baPosFromEvent(e));
+      e.preventDefault();
+    });
+    baSlider.addEventListener("pointermove", function (e) {
+      if (baDragging) baSetPos(baPosFromEvent(e));
+    });
+    var baStop = function () {
+      baDragging = false;
+      baSlider.classList.remove("is-dragging");
+    };
+    baSlider.addEventListener("pointerup", baStop);
+    baSlider.addEventListener("pointercancel", baStop);
+    /* keyboard accessibility via the (visually hidden) range input */
     baRange.addEventListener("input", function () {
       baSlider.style.setProperty("--pos", baRange.value + "%");
     });

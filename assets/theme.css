@@ -543,6 +543,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   overflow: hidden;
   --pos: 25%;
   touch-action: none;
+  cursor: ew-resize;
   user-select: none;
 }
 .ba-slider img {
@@ -588,8 +589,8 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   opacity: 0;
-  cursor: ew-resize;
   margin: 0;
+  pointer-events: none; /* pointer drags are handled on the container; input stays for keyboard */
 }
 .ba-caption {
   text-align: center;
