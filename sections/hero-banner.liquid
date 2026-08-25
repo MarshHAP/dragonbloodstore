@@ -4,7 +4,7 @@
       {%- if section.settings.image -%}
         {{ section.settings.image | image_url: width: 2000 | image_tag: class: 'hero__photo', alt: '', loading: 'eager' }}
       {%- else -%}
-        <img class="hero__photo" src="{{ 'serum-dropper.jpg' | asset_url }}" alt="" aria-hidden="true" width="1600" height="900">
+        <img class="hero__photo" src="{{ 'serum-dropper.jpg' | asset_url }}" alt="" aria-hidden="true" width="880" height="880">
       {%- endif -%}
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="hero__content">

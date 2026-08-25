@@ -15,7 +15,7 @@
               {{ block.settings.image | image_url: width: 900 | image_tag: alt: block.settings.title }}
             {%- else -%}
               {%- assign idx = forloop.index0 | modulo: 3 -%}
-              <img src="{{ fallbacks[idx] | asset_url }}" alt="{{ block.settings.title | escape }}" width="880" height="810">
+              <img src="{{ fallbacks[idx] | asset_url }}" alt="{{ block.settings.title | escape }}" width="880" height="880">
             {%- endif -%}
           </div>
         </article>

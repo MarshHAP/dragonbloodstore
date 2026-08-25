@@ -149,7 +149,7 @@
       var li = document.createElement("li");
       li.className = "cart-item";
       li.innerHTML =
-        (item.image ? '<img src="' + item.image + '&width=120" alt="">' : "") +
+        (item.image ? '<img src="' + item.image + (item.image.indexOf("?") >= 0 ? "&" : "?") + 'width=120" alt="">' : "") +
         '<div class="cart-item__info">' +
           "<b></b>" +
           "<span>" + money(item.final_line_price / 100) + "</span>" +

@@ -178,8 +178,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   object-fit: cover;
   mix-blend-mode: multiply;
   opacity: 0.9;
-  filter: saturate(1.15) blur(1px);
-  transform: scale(1.02);
+  filter: saturate(1.15);
 }
 .hero__scrim {
   position: absolute; inset: 0;
