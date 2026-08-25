@@ -147,14 +147,36 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 }
 .menu-drawer {
   display: none;
-  border-top: 1px solid var(--mist);
+  position: fixed;
+  inset: 0;
+  top: var(--header-h, 57px);
+  z-index: 55;
   background: #fff;
   flex-direction: column;
-  padding: 0.4rem 0;
+  padding: 1.6rem 0 0;
+  overflow-y: auto;
 }
 .menu-drawer.is-open { display: flex; }
-.menu-drawer a { padding: 0.7rem 5%; font-weight: 500; font-size: 0.95rem; }
+.menu-drawer a {
+  padding: 0.95rem 6%;
+  font-weight: 500;
+  font-size: 1.45rem;
+  font-family: var(--font-display);
+  color: var(--ink);
+}
 .menu-drawer a:hover { background: var(--tint); color: var(--red-900); }
+.menu-drawer__foot {
+  margin-top: auto;
+  background: var(--mist);
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 1.4rem 6% 2.2rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.nav-toggle span { transition: transform 0.2s ease, opacity 0.2s ease; }
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-open span:nth-child(3) { transform: translateY(-5.6px) rotate(-45deg); }
 /* inline nav used on secondary pages */
 .site-nav { justify-self: end; display: flex; gap: 1.3rem; }
 .site-nav a { font-weight: 500; font-size: 0.9rem; color: var(--ink-soft); }

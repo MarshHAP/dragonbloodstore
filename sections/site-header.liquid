@@ -16,6 +16,7 @@
     {%- for link in section.settings.menu.links -%}
       <a href="{{ link.url }}">{{ link.title }}</a>
     {%- endfor -%}
+    <div class="menu-drawer__foot">{{ localization.country.name }} | {{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }}</div>
   </nav>
 </header>
 

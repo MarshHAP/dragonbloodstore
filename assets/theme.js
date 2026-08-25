@@ -27,8 +27,12 @@
   var navToggle = $("#navToggle"), menuDrawer = $("#menuDrawer");
   if (navToggle && menuDrawer) {
     navToggle.addEventListener("click", function () {
+      var header = $(".site-header");
+      if (header) document.documentElement.style.setProperty("--header-h", header.getBoundingClientRect().bottom + "px");
       var open = menuDrawer.classList.toggle("is-open");
+      navToggle.classList.toggle("is-open", open);
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
     });
   }
 
@@ -41,8 +45,10 @@
       var target = $(hash);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
         menuDrawer && menuDrawer.classList.remove("is-open");
+        navToggle && navToggle.classList.remove("is-open");
+        document.body.style.overflow = "";
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });
