@@ -1,0 +1,41 @@
+<section class="page">
+  <div class="container">
+    <h1 class="section-title">{{ collection.title }}</h1>
+    <div class="testimonial-grid product-grid">
+      {%- paginate collection.products by 12 -%}
+        {%- for product in collection.products -%}
+          <a class="review-card product-card" href="{{ product.url }}">
+            {%- if product.featured_image -%}
+              {{ product.featured_image | image_url: width: 600 | image_tag: alt: product.featured_image.alt, class: 'product-card__img' }}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {%- endif -%}
+            <h3>{{ product.title }}</h3>
+            <p>
+              {%- if product.compare_at_price > product.price -%}
+                <b>{{ product.price | money }}</b> <s>{{ product.compare_at_price | money }}</s>
+              {%- else -%}
+                <b>{{ product.price | money }}</b>
+              {%- endif -%}
+            </p>
+          </a>
+        {%- else -%}
+          <p>No products found.</p>
+        {%- endfor -%}
+        {%- if paginate.pages > 1 -%}
+          <div class="pagination">
+            {%- if paginate.previous -%}<a class="btn btn--ghost" href="{{ paginate.previous.url }}">{{ 'general.pagination.previous' | t }}</a>{%- endif -%}
+            {%- if paginate.next -%}<a class="btn btn--ghost" href="{{ paginate.next.url }}">{{ 'general.pagination.next' | t }}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection page",
+  "settings": []
+}
+{% endschema %}

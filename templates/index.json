@@ -1,0 +1,302 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonial-strip",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {}
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "title": "Softer & smoother",
+            "quote": "Fine lines look softer and my cheeks stay hydrated all day. I didn't expect one serum to cover this much ground.",
+            "name": "Marcus"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "title": "Calm, easy mornings",
+            "quote": "After a few weeks, my skin feels calm and comfortable and my morning routine takes half the time.",
+            "name": "Sofia"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {}
+    },
+    "benefits": {
+      "type": "benefits-accordion",
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {}
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "drop",
+            "title": "Deep, Lasting Hydration",
+            "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Brightens & Evens Tone",
+            "text": "A focused botanical formula that helps fade dullness and bring back a healthy, even glow."
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "A Simple Botanical Formula",
+            "text": "Lightweight, fast-absorbing and gentle enough for daily use \u2014 a few drops, morning and night."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {}
+    },
+    "buybox": {
+      "type": "buy-box",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {}
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "title": "Natural Botanical Formula"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "sparkle",
+            "title": "For a Feel-Good Routine"
+          }
+        },
+        "p1": {
+          "type": "bundle",
+          "settings": {}
+        },
+        "p2": {
+          "type": "bundle",
+          "settings": {
+            "title": "Buy 2, Get 1 FREE",
+            "quantity": 3,
+            "price": "59.99",
+            "compare_price": "119.97",
+            "badge": "Most Popular",
+            "preselected": true
+          }
+        },
+        "p3": {
+          "type": "bundle",
+          "settings": {
+            "title": "Buy 3, Get 2 FREE",
+            "quantity": 5,
+            "price": "89.99",
+            "compare_price": "199.95",
+            "badge": "Free Shipping",
+            "badge_alt": true
+          }
+        },
+        "a1": {
+          "type": "accordion",
+          "settings": {
+            "title": "Product Description",
+            "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract \u2014 the deep-red resin of the dragon tree \u2014 combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3\u20134 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>"
+          }
+        },
+        "a2": {
+          "type": "accordion",
+          "settings": {
+            "title": "Frequently Asked Questions",
+            "content": "<p><strong>Is it suitable for daily use?</strong><br>Yes. The formula is lightweight and gentle, designed for use morning and night.</p><p><strong>Which skin types can use it?</strong><br>Most skin types, including dry, combination and sensitive skin. Patch-test first if your skin is very reactive.</p>"
+          }
+        },
+        "a3": {
+          "type": "accordion",
+          "settings": {
+            "title": "Shipping, Returns & Guarantees",
+            "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3\u20135 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee \u2014 no questions asked.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "p1",
+        "p2",
+        "p3",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "settings": {}
+    },
+    "ritual": {
+      "type": "daily-ritual",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {}
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Apply",
+            "text": "Gently press into clean face and neck until fully absorbed."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Make It a Habit",
+            "text": "Use morning and night, and follow with moisturiser and SPF."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {}
+    },
+    "wall": {
+      "type": "review-wall",
+      "blocks": {
+        "w1": {
+          "type": "review",
+          "settings": {}
+        },
+        "w2": {
+          "type": "review",
+          "settings": {
+            "quote": "Light, non-sticky and easy to stick with. I actually look forward to using it.",
+            "name": "Priya"
+          }
+        },
+        "w3": {
+          "type": "review",
+          "settings": {
+            "quote": "Love that it's just a few drops. No ten-step routine, no fuss \u2014 fits right into my day.",
+            "name": "Jordan"
+          }
+        },
+        "w4": {
+          "type": "review",
+          "settings": {
+            "quote": "The redness on my cheeks has calmed down noticeably. My skin feels stronger.",
+            "name": "Hannah"
+          }
+        },
+        "w5": {
+          "type": "review",
+          "settings": {
+            "quote": "Absorbs in seconds and layers perfectly under makeup. A little goes a long way.",
+            "name": "Daniel"
+          }
+        },
+        "w6": {
+          "type": "review",
+          "settings": {
+            "quote": "After a month my skin tone looks more even and I've stopped wearing foundation most days.",
+            "name": "Sofia"
+          }
+        }
+      },
+      "block_order": [
+        "w1",
+        "w2",
+        "w3",
+        "w4",
+        "w5",
+        "w6"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {}
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Is it suitable for daily use?",
+            "answer": "Yes, it is designed to fit into a simple daily skincare routine, morning and night."
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What if it doesn't work for me?",
+            "answer": "You're covered by our 30-Day Money-Back Guarantee \u2014 contact us for a full refund, no questions asked."
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use it?",
+            "answer": "Apply 3\u20134 drops to clean skin morning and night, then follow with moisturiser and SPF in the morning."
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use it with other skincare?",
+            "answer": "In most routines yes \u2014 apply after cleansing, before moisturiser. Introduce gradually if you use strong actives."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "testimonials",
+    "benefits",
+    "buybox",
+    "ritual",
+    "wall",
+    "faq",
+    "cta"
+  ]
+}

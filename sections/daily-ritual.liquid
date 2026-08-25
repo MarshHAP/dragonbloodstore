@@ -1,0 +1,64 @@
+<section class="ritual">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <div class="ritual-grid">
+      {%- assign fallbacks = 'serum-dropper.jpg,serum-benefits.jpg,serum-ingredients.jpg' | split: ',' -%}
+      {%- for block in section.blocks -%}
+        <article class="ritual-step" {{ block.shopify_attributes }}>
+          <div class="ritual-step__card">
+            <span class="ritual-step__num">Step {{ forloop.index }}</span>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+          <div class="ritual-step__photo">
+            {%- if block.settings.image -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: alt: block.settings.title }}
+            {%- else -%}
+              {%- assign idx = forloop.index0 | modulo: 3 -%}
+              <img src="{{ fallbacks[idx] | asset_url }}" alt="{{ block.settings.title | escape }}" width="880" height="810">
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+    <div class="section-cta">
+      <a href="#offer" class="btn btn--primary js-scroll">{{ section.settings.button_label }} <u>Risk-Free</u></a>
+      <div class="guarantee-pill guarantee-pill--light">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+        {{ settings.guarantee_text }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Daily ritual",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your Daily Ritual" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Try Dragonblood" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Dispense" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Squeeze 3–4 drops of serum onto your fingertips." },
+        { "type": "image_picker", "id": "image", "label": "Photo", "info": "Falls back to a bundled product photo." }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Daily ritual",
+      "blocks": [
+        { "type": "step" },
+        { "type": "step", "settings": { "title": "Apply", "text": "Gently press into clean face and neck until fully absorbed." } },
+        { "type": "step", "settings": { "title": "Make It a Habit", "text": "Use morning and night, and follow with moisturiser and SPF." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

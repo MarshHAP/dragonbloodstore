@@ -1,0 +1,44 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Dragonblood",
+    "theme_version": "1.0.0",
+    "theme_author": "Dragonblood",
+    "theme_documentation_url": "https://github.com/MarshHAP/dragonbloodstore",
+    "theme_support_url": "https://github.com/MarshHAP/dragonbloodstore/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary (dark red)",
+        "default": "#521424"
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Dark background (near-black red)",
+        "default": "#2d060f"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (crimson)",
+        "default": "#9b1941"
+      }
+    ]
+  },
+  {
+    "name": "Guarantee",
+    "settings": [
+      {
+        "type": "text",
+        "id": "guarantee_text",
+        "label": "Guarantee text",
+        "default": "30 Day Money Back Guarantee"
+      }
+    ]
+  }
+]

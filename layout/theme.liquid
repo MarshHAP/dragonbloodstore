@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {{- page_title -}}
+    {%- unless page_title contains shop.name %} | {{ shop.name }}{% endunless -%}
+  </title>
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <script>
+    window.DBTHEME = {
+      shopifyCart: true,
+      moneyFormat: {{ shop.money_format | json }},
+      cartCount: {{ cart.item_count | json }}
+    };
+  </script>
+
+  {{ content_for_header }}
+</head>
+<body>
+
+  {% section 'announcement-bar' %}
+  {% section 'site-header' %}
+
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'site-footer' %}
+
+  <!-- Cart drawer -->
+  <div class="cart-overlay" id="cartOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="{{ 'cart.title' | t }}" aria-hidden="true">
+    <header class="cart-drawer__head">
+      <h3>{{ 'cart.title' | t }}</h3>
+      <button class="cart-drawer__close" id="cartClose" aria-label="{{ 'cart.close' | t }}">✕</button>
+    </header>
+    <div class="cart-drawer__body" id="cartBody">
+      <p class="cart-empty" id="cartEmpty">{{ 'cart.empty' | t }}<br><button class="btn btn--ghost js-continue" id="continueShopping">{{ 'cart.continue_shopping' | t }}</button></p>
+      <ul class="cart-items" id="cartItems"></ul>
+    </div>
+    <footer class="cart-drawer__foot" id="cartFoot" hidden>
+      <div class="cart-total"><span>{{ 'cart.subtotal' | t }}</span><b id="cartTotal">$0.00</b></div>
+      <p class="cart-note">{{ 'cart.note' | t }}</p>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">{{ 'cart.checkout' | t }}</button>
+    </footer>
+  </aside>
+
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>

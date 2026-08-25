@@ -1,0 +1,34 @@
+<div class="countdown-bar" id="countdownBar">
+  <div class="countdown-bar__inner">
+    <span class="countdown-bar__label">{{ section.settings.text }}</span>
+    {%- if section.settings.show_timer -%}
+      <div class="countdown-bar__timer" aria-label="Sale ends in">
+        <span class="timer-cell"><b id="tHrs">00</b><small>Hrs</small></span>
+        <span class="timer-sep">:</span>
+        <span class="timer-cell"><b id="tMins">00</b><small>Mins</small></span>
+        <span class="timer-sep">:</span>
+        <span class="timer-cell"><b id="tSecs">00</b><small>Secs</small></span>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Summer Sale – 55% Off"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_timer",
+      "label": "Show countdown timer (resets daily at midnight)",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

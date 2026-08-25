@@ -1,0 +1,22 @@
+<section class="page">
+  <div class="container">
+    <h1 class="section-title">Collections</h1>
+    <div class="testimonial-grid product-grid">
+      {%- for collection in collections -%}
+        <a class="review-card product-card" href="{{ collection.url }}">
+          {%- if collection.featured_image -%}
+            {{ collection.featured_image | image_url: width: 600 | image_tag: alt: collection.title, class: 'product-card__img' }}
+          {%- endif -%}
+          <h3>{{ collection.title }}</h3>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": []
+}
+{% endschema %}

@@ -1,16 +1,42 @@
 # Dragonblood® Store
 
-A single-product e-commerce storefront for the Dragonblood Anti-Ageing Serum,
-modelled on the structure and conversion flow of a modern one-product
-Shopify landing page (countdown sale bar → hero → social proof → benefits +
-bundle buy box → daily ritual → review wall → FAQ → guarantee → footer).
+A single-product storefront for the Dragonblood Anti-Ageing Serum, built as a
+**Shopify Online Store 2.0 theme** (plus a standalone static demo), modelled on
+the structure and conversion flow of a modern one-product funnel (countdown
+sale bar → hero → social proof → benefits + bundle buy box → daily ritual →
+review wall → FAQ → guarantee → footer).
 
-## Pages
+## Shopify theme
+
+The repo root is a valid Shopify theme — connect this branch via
+**Online Store → Themes → Add theme → Connect from GitHub**.
+
+- `layout/theme.liquid` — base layout with cart drawer
+- `sections/` — all homepage sections (hero, testimonials, benefits, buy box
+  with bundle blocks, ritual, review wall, FAQ, final CTA) plus standard
+  product/collection/cart/page/blog/search/404 sections. Every text, image,
+  review and bundle is editable in the theme editor.
+- `templates/` — OS 2.0 JSON templates pre-configured with the full landing page
+- `config/`, `locales/`, `assets/` — settings, translations, CSS/JS/images
+
+After connecting:
+1. In the theme editor, open the **Buy box** section and pick your product —
+   bundles add its first variant (×1 / ×3 / ×5) to the real Shopify cart.
+2. Create automatic discounts to match the displayed bundle prices.
+3. Assign your Main menu / Footer menu and add your store policies in Settings.
+
+Validated with `shopify theme check` (0 errors).
+
+## Static demo
+
+The same design also works as a plain static site (demo cart in localStorage):
 
 - `index.html` — main landing page with product gallery, bundle offers
   (Buy 1 / Buy 2 Get 1 FREE / Buy 3 Get 2 FREE), cart drawer, FAQ and reviews
 - `contact.html` — contact form + order tracking info
 - `policies.html` — refund, shipping, privacy, terms and cancellation policies
+
+Shopify ignores these root HTML files when the branch is connected as a theme.
 
 ## Features
 

@@ -1,0 +1,53 @@
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="stars stars--lead" aria-hidden="true">★★★★★</div>
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <div class="testimonial-grid">
+      {%- for block in section.blocks -%}
+        <article class="review-card" {{ block.shopify_attributes }}>
+          <div class="review-card__top"><span class="review-score">{{ block.settings.score }}</span><span class="stars">★★★★★</span></div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          <footer><span class="chip">{{ block.settings.name }}</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonial strip",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Customers Are Saying"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "score", "label": "Score", "default": "4.9" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Glowing again" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "My skin looked dull for years. After three weeks of the serum it finally looks fresh and rested again." },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Amelia" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Testimonial strip",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review", "settings": { "title": "Softer & smoother", "quote": "Fine lines look softer and my cheeks stay hydrated all day. I didn't expect one serum to cover this much ground.", "name": "Marcus" } },
+        { "type": "review", "settings": { "title": "Calm, easy mornings", "quote": "After a few weeks, my skin feels calm and comfortable and my morning routine takes half the time.", "name": "Sofia" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

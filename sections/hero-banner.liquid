@@ -1,0 +1,60 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero__banner">
+      {%- if section.settings.image -%}
+        {{ section.settings.image | image_url: width: 2000 | image_tag: class: 'hero__photo', alt: '', loading: 'eager' }}
+      {%- else -%}
+        <img class="hero__photo" src="{{ 'serum-dropper.jpg' | asset_url }}" alt="" aria-hidden="true" width="1600" height="900">
+      {%- endif -%}
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1>{{ section.settings.heading }}</h1>
+        <p class="hero__sub">{{ section.settings.subheading }}</p>
+        <a href="{{ section.settings.button_link | default: '#offer' }}" class="btn btn--primary js-scroll">{{ section.settings.button_label }} <u>Risk-Free</u></a>
+        <div class="guarantee-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+          {{ settings.guarantee_text }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image",
+      "info": "Falls back to the bundled serum photo."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Radiant Skin, Powered by Nature"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "A daily botanical serum that helps repair your skin barrier and restore a healthy glow."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Try Dragonblood"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Leave blank to scroll to the buy box."
+    }
+  ],
+  "presets": [{ "name": "Hero banner" }]
+}
+{% endschema %}

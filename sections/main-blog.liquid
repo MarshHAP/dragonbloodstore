@@ -1,0 +1,32 @@
+<section class="page">
+  <div class="container">
+    <h1 class="section-title">{{ blog.title }}</h1>
+    <div class="testimonial-grid product-grid">
+      {%- paginate blog.articles by 12 -%}
+        {%- for article in blog.articles -%}
+          <a class="review-card product-card" href="{{ article.url }}">
+            {%- if article.image -%}
+              {{ article.image | image_url: width: 600 | image_tag: alt: article.title, class: 'product-card__img' }}
+            {%- endif -%}
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+            <footer><span class="chip">{{ article.published_at | date: '%b %d, %Y' }}</span></footer>
+          </a>
+        {%- endfor -%}
+        {%- if paginate.pages > 1 -%}
+          <div class="pagination">
+            {%- if paginate.previous -%}<a class="btn btn--ghost" href="{{ paginate.previous.url }}">{{ 'general.pagination.previous' | t }}</a>{%- endif -%}
+            {%- if paginate.next -%}<a class="btn btn--ghost" href="{{ paginate.next.url }}">{{ 'general.pagination.next' | t }}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": []
+}
+{% endschema %}

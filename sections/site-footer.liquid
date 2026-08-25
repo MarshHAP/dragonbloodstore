@@ -1,0 +1,63 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <a class="logo logo--footer" href="{{ routes.root_url }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>
+          {{ shop.name | upcase }}
+        </a>
+        {{ section.settings.disclaimer }}
+      </div>
+      <div class="footer-col">
+        <h4>{{ section.settings.menu_heading }}</h4>
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      </div>
+      <div class="footer-col">
+        <h4>{{ section.settings.policies_heading }}</h4>
+        {%- for policy in shop.policies -%}
+          <a href="{{ policy.url }}">{{ policy.title }}</a>
+        {%- endfor -%}
+      </div>
+      <div class="footer-col footer-col--news">
+        <h4>{{ section.settings.newsletter_heading }}</h4>
+        <p>{{ section.settings.newsletter_text }}</p>
+        {%- form 'customer', class: 'newsletter' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="{{ 'newsletter.placeholder' | t }}" required aria-label="Email address">
+          <button class="btn btn--primary" type="submit">{{ 'newsletter.submit' | t }}</button>
+        {%- endform -%}
+        {%- if section.settings.address != blank -%}
+          <address>{{ section.settings.address }}</address>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="footer-legal">
+      <div class="pay-icons pay-icons--footer" aria-label="Accepted payment methods">
+        <span>VISA</span><span>MC</span><span>AMEX</span><span>PayPal</span><span>&#63743; Pay</span><span>G Pay</span>
+      </div>
+      <p class="copyright">© {{ 'now' | date: '%Y' }} {{ shop.name }} | All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p>* Results may vary from person to person. Testimonials reflect individual experiences and are not guaranteed outcomes.</p><p>* This product is a cosmetic and is not intended to diagnose, treat, cure or prevent any disease.</p>"
+    },
+    { "type": "text", "id": "menu_heading", "label": "Menu heading", "default": "Menu" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" },
+    { "type": "text", "id": "policies_heading", "label": "Policies heading", "default": "Policies" },
+    { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Let's Stay Connected" },
+    { "type": "text", "id": "newsletter_text", "label": "Newsletter text", "default": "Be first to know about new products and special savings." },
+    { "type": "textarea", "id": "address", "label": "Address" }
+  ]
+}
+{% endschema %}

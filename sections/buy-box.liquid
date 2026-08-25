@@ -1,0 +1,189 @@
+{%- assign product = section.settings.product -%}
+{%- assign variant = product.selected_or_first_available_variant -%}
+
+<section class="product" id="offer">
+  <div class="container product__inner">
+
+    <!-- Gallery + info accordions -->
+    <div class="gallery-col">
+      <div class="gallery">
+        <div class="gallery__thumbs" id="galleryThumbs">
+          {%- if product != blank and product.images.size > 0 -%}
+            {%- for image in product.images limit: 6 -%}
+              <button class="thumb{% if forloop.first %} is-active{% endif %}" data-src="{{ image | image_url: width: 1100 }}" aria-label="View image {{ forloop.index }}">
+                {{ image | image_url: width: 150 | image_tag: alt: '' }}
+              </button>
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign fallbacks = 'serum-front.jpg,serum-box.jpg,serum-dropper.jpg,serum-benefits.jpg,serum-ingredients.jpg,serum-extract.jpg' | split: ',' -%}
+            {%- for img in fallbacks -%}
+              <button class="thumb{% if forloop.first %} is-active{% endif %}" data-src="{{ img | asset_url }}" aria-label="View image {{ forloop.index }}">
+                <img src="{{ img | asset_url }}" alt="" width="150" height="150">
+              </button>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+        <div class="gallery__main">
+          {%- if product != blank and product.featured_image -%}
+            {{ product.featured_image | image_url: width: 1100 | image_tag: id: 'galleryMain', alt: product.featured_image.alt }}
+          {%- else -%}
+            <img id="galleryMain" src="{{ 'serum-front.jpg' | asset_url }}" alt="Product image" width="880" height="880">
+          {%- endif -%}
+        </div>
+        <div class="gallery__features">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'feature' -%}
+              <div class="feature-tile" {{ block.shopify_attributes }}>
+                <span class="feature-tile__icon">
+                  {%- case block.settings.icon -%}
+                    {%- when 'bottle' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M10 3h4M11 3v4M13 3v4M9 7h6l1 3v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-9l1-3Z"/></svg>
+                    {%- when 'leaf' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15Z"/><path d="M5 19c3-5 7-8 11-10"/></svg>
+                    {%- else -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="20" height="20"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"/></svg>
+                  {%- endcase -%}
+                </span>
+                <span>{{ block.settings.title }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="accordion accordion--product" id="productAccordion">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'accordion' -%}
+            <details {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.title }}</summary>
+              <div class="accordion__body">{{ block.settings.content }}</div>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <!-- Buy box -->
+    <div class="buybox">
+      <p class="rating-line"><span class="stars">★★★★★</span> Rated {{ section.settings.rating }} &lsquo;<b>Excellent</b>&rsquo; | <a href="#reviews" class="js-scroll">{{ section.settings.review_count }}</a></p>
+      <h2 class="buybox__title">{% if product != blank %}{{ product.title }}{% else %}{{ section.settings.fallback_title }}{% endif %}</h2>
+      <p class="buybox__tagline">{{ section.settings.tagline }}</p>
+
+      <div class="bundles" id="bundles" role="radiogroup" aria-label="Choose your bundle"
+           {% if variant %}data-variant-id="{{ variant.id }}"{% endif %}>
+        {%- assign drop_icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="13" height="13"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>' -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'bundle' -%}
+            <label class="bundle" {{ block.shopify_attributes }}>
+              <input type="radio" name="bundle" value="bundle-{{ forloop.index }}"
+                     data-title="{{ block.settings.title | escape }}"
+                     data-price="{{ block.settings.price }}"
+                     data-compare="{{ block.settings.compare_price }}"
+                     data-qty="{{ block.settings.quantity }}"
+                     {% if block.settings.preselected %}checked{% endif %}>
+              {%- if block.settings.badge != blank -%}
+                <span class="bundle__flag{% if block.settings.badge_alt %} bundle__flag--alt{% endif %}">{{ block.settings.badge }}</span>
+              {%- endif -%}
+              <span class="bundle__check" aria-hidden="true"></span>
+              <span class="bundle__bottles" aria-hidden="true">{% for i in (1..block.settings.quantity) %}{{ drop_icon }}{% endfor %}</span>
+              <span class="bundle__name">{{ block.settings.title }}</span>
+              <span class="bundle__right"><b class="bundle__price">${{ block.settings.price }}</b><s class="bundle__compare">${{ block.settings.compare_price }}</s></span>
+            </label>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.show_subscribe -%}
+        <div class="purchase-toggle" id="purchaseToggle" role="radiogroup" aria-label="Purchase type">
+          <label class="purchase-opt">
+            <input type="radio" name="ptype" value="onetime" checked>
+            <span class="purchase-opt__label">One-time purchase</span>
+          </label>
+          <label class="purchase-opt">
+            <input type="radio" name="ptype" value="subscribe">
+            <span class="purchase-opt__label">Subscribe &amp; Save 25%<small>Delivery every 4 weeks. Cancel anytime.</small></span>
+          </label>
+        </div>
+      {%- endif -%}
+
+      <p class="ship-line"><span class="ship-line__icon"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" style="vertical-align:-2px"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span> Ready to ship &mdash; arrives by <b id="arrivalDate"></b></p>
+
+      <button class="btn btn--primary btn--block btn--atc" id="addToCart">Add To Cart &mdash; <span id="atcPrice"></span> <s id="atcCompare"></s></button>
+      <p class="atc-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+        {{ settings.guarantee_text }}
+      </p>
+      <div class="pay-icons" aria-label="Accepted payment methods">
+        <span>VISA</span><span>MC</span><span>AMEX</span><span>PayPal</span><span>&#63743; Pay</span><span>G Pay</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Buy box",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product", "info": "Bundle quantities add this product's first variant to the cart. Set up automatic discounts to match the displayed bundle prices." },
+    { "type": "text", "id": "fallback_title", "label": "Fallback title (no product selected)", "default": "Dragonblood® Anti-Ageing Serum" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "The daily ritual your skin has been waiting for." },
+    { "type": "text", "id": "rating", "label": "Rating", "default": "4.9" },
+    { "type": "text", "id": "review_count", "label": "Review count text", "default": "800+ Reviews" },
+    { "type": "checkbox", "id": "show_subscribe", "label": "Show subscribe toggle", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "bundle",
+      "name": "Bundle option",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Buy One" },
+        { "type": "range", "id": "quantity", "label": "Bottles in bundle", "min": 1, "max": 6, "step": 1, "default": 1 },
+        { "type": "text", "id": "price", "label": "Price (number only)", "default": "29.99" },
+        { "type": "text", "id": "compare_price", "label": "Compare-at price (number only)", "default": "39.99" },
+        { "type": "text", "id": "badge", "label": "Badge (optional)" },
+        { "type": "checkbox", "id": "badge_alt", "label": "Use alternate badge colour", "default": false },
+        { "type": "checkbox", "id": "preselected", "label": "Preselected", "default": false }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature tile",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "bottle", "label": "Bottle" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "sparkle", "label": "Sparkle" }
+          ],
+          "default": "bottle"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Everyday Skin Renewal" }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Info accordion",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Product Description" },
+        { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Describe your product here.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Buy box",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature", "settings": { "icon": "leaf", "title": "Natural Botanical Formula" } },
+        { "type": "feature", "settings": { "icon": "sparkle", "title": "For a Feel-Good Routine" } },
+        { "type": "bundle" },
+        { "type": "bundle", "settings": { "title": "Buy 2, Get 1 FREE", "quantity": 3, "price": "59.99", "compare_price": "119.97", "badge": "Most Popular", "preselected": true } },
+        { "type": "bundle", "settings": { "title": "Buy 3, Get 2 FREE", "quantity": 5, "price": "89.99", "compare_price": "199.95", "badge": "Free Shipping", "badge_alt": true } },
+        { "type": "accordion", "settings": { "title": "Product Description", "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract — the deep-red resin of the dragon tree — combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3–4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>" } },
+        { "type": "accordion", "settings": { "title": "Frequently Asked Questions", "content": "<p><strong>Is it suitable for daily use?</strong><br>Yes. The formula is lightweight and gentle, designed for use morning and night.</p><p><strong>Which skin types can use it?</strong><br>Most skin types, including dry, combination and sensitive skin. Patch-test first if your skin is very reactive.</p>" } },
+        { "type": "accordion", "settings": { "title": "Shipping, Returns & Guarantees", "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3–5 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee — no questions asked.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

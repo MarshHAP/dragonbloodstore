@@ -1,0 +1,27 @@
+<section class="page">
+  <div class="container page__inner">
+    <h1>{{ page.title }}</h1>
+    <div class="rte">{{ page.content }}</div>
+    <div class="contact-card">
+      {%- form 'contact' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="newsletter__thanks">{{ 'contact.form.success' | t }}</p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p class="form-errors">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+        <input type="text" name="contact[name]" placeholder="{{ 'contact.form.name' | t }}" required aria-label="{{ 'contact.form.name' | t }}">
+        <input type="email" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" required aria-label="{{ 'contact.form.email' | t }}">
+        <textarea name="contact[body]" placeholder="{{ 'contact.form.message' | t }}" required aria-label="{{ 'contact.form.message' | t }}"></textarea>
+        <button class="btn btn--primary" type="submit">{{ 'contact.form.send' | t }}</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,50 @@
+<section class="review-wall">
+  <div class="container">
+    <h2 class="section-title section-title--light">{{ section.settings.heading }}</h2>
+    <div class="testimonial-grid testimonial-grid--wall" id="reviewWall">
+      {%- for block in section.blocks -%}
+        <article class="review-card" {{ block.shopify_attributes }}>
+          <div class="review-card__top"><span class="review-score">{{ block.settings.score }}</span><span class="stars">★★★★★</span></div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          <footer><span class="chip">{{ block.settings.name }}</span><span class="chip chip--verified">✔ Verified Customer</span></footer>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Review wall",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From Their Routine to Yours" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "score", "label": "Score", "default": "4.9" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Seeing Real Improvement" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "It's become part of my morning routine — a few drops before moisturiser and I'm good to go." },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Maya" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Review wall",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review", "settings": { "quote": "Light, non-sticky and easy to stick with. I actually look forward to using it.", "name": "Priya" } },
+        { "type": "review", "settings": { "quote": "Love that it's just a few drops. No ten-step routine, no fuss — fits right into my day.", "name": "Jordan" } },
+        { "type": "review", "settings": { "quote": "The redness on my cheeks has calmed down noticeably. My skin feels stronger.", "name": "Hannah" } },
+        { "type": "review", "settings": { "quote": "Absorbs in seconds and layers perfectly under makeup. A little goes a long way.", "name": "Daniel" } },
+        { "type": "review", "settings": { "quote": "After a month my skin tone looks more even and I've stopped wearing foundation most days.", "name": "Sofia" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

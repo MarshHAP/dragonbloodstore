@@ -1,0 +1,17 @@
+<section class="page">
+  <div class="container page__inner">
+    <h1>{{ article.title }}</h1>
+    <p class="rating-line">{{ article.published_at | date: '%B %d, %Y' }}{% if article.author %} · {{ article.author }}{% endif %}</p>
+    {%- if article.image -%}
+      {{ article.image | image_url: width: 1200 | image_tag: alt: article.title, style: 'border-radius:12px;margin-bottom:1.4rem' }}
+    {%- endif -%}
+    <div class="rte">{{ article.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": []
+}
+{% endschema %}

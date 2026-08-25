@@ -1,9 +1,12 @@
-/* Dragonblood® storefront interactions */
+/* Dragonblood® storefront interactions.
+   Runs in two modes: on Shopify (window.DBTHEME.shopifyCart) it uses the
+   AJAX cart API; as a static demo it falls back to a localStorage cart. */
 (function () {
   "use strict";
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+  var SHOPIFY = !!(window.DBTHEME && window.DBTHEME.shopifyCart);
 
   /* ---------- countdown (resets at local midnight) ---------- */
   var tHrs = $("#tHrs"), tMins = $("#tMins"), tSecs = $("#tSecs");
@@ -104,66 +107,10 @@
   });
   refreshOfferPrice();
 
-  /* ---------- cart (localStorage demo cart) ---------- */
-  var CART_KEY = "dragonblood_cart";
-  function loadCart() {
-    try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
-    catch (e) { return []; }
-  }
-  function saveCart(cart) {
-    try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) { /* private mode */ }
-  }
-
+  /* ---------- cart drawer chrome ---------- */
   var cartDrawer = $("#cartDrawer"), cartOverlay = $("#cartOverlay");
   var cartItemsEl = $("#cartItems"), cartEmptyEl = $("#cartEmpty");
   var cartFoot = $("#cartFoot"), cartTotalEl = $("#cartTotal"), cartCountEl = $("#cartCount");
-
-  function renderCart() {
-    var cart = loadCart();
-    if (!cartItemsEl) return;
-    cartItemsEl.innerHTML = "";
-    var total = 0, count = 0;
-    cart.forEach(function (item, i) {
-      total += item.price * item.qty;
-      count += item.qty;
-      var li = document.createElement("li");
-      li.className = "cart-item";
-      li.innerHTML =
-        '<img src="assets/img/serum-front.jpg" alt="">' +
-        '<div class="cart-item__info">' +
-          "<b>" + item.title + "</b>" +
-          "<span>$" + (item.price * item.qty).toFixed(2) + "</span>" +
-          '<div class="cart-item__qty">' +
-            '<button data-i="' + i + '" data-d="-1" aria-label="Decrease quantity">−</button>' +
-            "<span>" + item.qty + "</span>" +
-            '<button data-i="' + i + '" data-d="1" aria-label="Increase quantity">+</button>' +
-          "</div>" +
-        "</div>" +
-        '<button class="cart-item__remove" data-remove="' + i + '">Remove</button>';
-      cartItemsEl.appendChild(li);
-    });
-    if (cartEmptyEl) cartEmptyEl.style.display = cart.length ? "none" : "";
-    if (cartFoot) cartFoot.hidden = !cart.length;
-    if (cartTotalEl) cartTotalEl.textContent = "$" + total.toFixed(2);
-    if (cartCountEl) cartCountEl.textContent = count;
-  }
-
-  if (cartItemsEl) {
-    cartItemsEl.addEventListener("click", function (e) {
-      var btn = e.target.closest("button");
-      if (!btn) return;
-      var cart = loadCart();
-      if (btn.hasAttribute("data-remove")) {
-        cart.splice(parseInt(btn.getAttribute("data-remove"), 10), 1);
-      } else if (btn.hasAttribute("data-i")) {
-        var i = parseInt(btn.getAttribute("data-i"), 10);
-        var d = parseInt(btn.getAttribute("data-d"), 10);
-        cart[i].qty = Math.max(1, cart[i].qty + d);
-      }
-      saveCart(cart);
-      renderCart();
-    });
-  }
 
   function openCart() {
     if (!cartDrawer) return;
@@ -183,37 +130,174 @@
     document.body.style.overflow = "";
     setTimeout(function () { cartOverlay.hidden = true; }, 280);
   }
-  var cartOpenBtn = $("#cartOpen");
-  cartOpenBtn && cartOpenBtn.addEventListener("click", openCart);
+  $("#cartOpen") && $("#cartOpen").addEventListener("click", function () {
+    if (SHOPIFY) refreshShopifyCart();
+    openCart();
+  });
   $("#cartClose") && $("#cartClose").addEventListener("click", closeCart);
   $("#continueShopping") && $("#continueShopping").addEventListener("click", closeCart);
   cartOverlay && cartOverlay.addEventListener("click", closeCart);
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeCart(); });
 
+  function money(n) { return "$" + n.toFixed(2); }
+
+  /* ================= SHOPIFY CART MODE ================= */
+  function renderShopifyCart(cart) {
+    if (!cartItemsEl) return;
+    cartItemsEl.innerHTML = "";
+    cart.items.forEach(function (item) {
+      var li = document.createElement("li");
+      li.className = "cart-item";
+      li.innerHTML =
+        (item.image ? '<img src="' + item.image + '&width=120" alt="">' : "") +
+        '<div class="cart-item__info">' +
+          "<b></b>" +
+          "<span>" + money(item.final_line_price / 100) + "</span>" +
+          '<div class="cart-item__qty">' +
+            '<button data-key="' + item.key + '" data-q="' + (item.quantity - 1) + '" aria-label="Decrease quantity">−</button>' +
+            "<span>" + item.quantity + "</span>" +
+            '<button data-key="' + item.key + '" data-q="' + (item.quantity + 1) + '" aria-label="Increase quantity">+</button>' +
+          "</div>" +
+        "</div>" +
+        '<button class="cart-item__remove" data-key="' + item.key + '" data-q="0">Remove</button>';
+      li.querySelector("b").textContent = item.product_title;
+      cartItemsEl.appendChild(li);
+    });
+    if (cartEmptyEl) cartEmptyEl.style.display = cart.item_count ? "none" : "";
+    if (cartFoot) cartFoot.hidden = !cart.item_count;
+    if (cartTotalEl) cartTotalEl.textContent = money(cart.total_price / 100);
+    if (cartCountEl) cartCountEl.textContent = cart.item_count;
+  }
+  function refreshShopifyCart() {
+    fetch("/cart.js").then(function (r) { return r.json(); }).then(renderShopifyCart);
+  }
+  function shopifyAdd(variantId, qty) {
+    return fetch("/cart/add.js", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: variantId, quantity: qty })
+    }).then(function (r) {
+      if (!r.ok) throw new Error("add failed");
+      return refreshShopifyCart();
+    });
+  }
+  function shopifyChange(key, qty) {
+    return fetch("/cart/change.js", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: key, quantity: qty })
+    }).then(function (r) { return r.json(); }).then(renderShopifyCart);
+  }
+
+  /* ================= DEMO CART MODE ================= */
+  var CART_KEY = "dragonblood_cart";
+  function loadCart() {
+    try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+    catch (e) { return []; }
+  }
+  function saveCart(cart) {
+    try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) { /* private mode */ }
+  }
+  function renderDemoCart() {
+    var cart = loadCart();
+    if (!cartItemsEl) return;
+    cartItemsEl.innerHTML = "";
+    var total = 0, count = 0;
+    cart.forEach(function (item, i) {
+      total += item.price * item.qty;
+      count += item.qty;
+      var li = document.createElement("li");
+      li.className = "cart-item";
+      li.innerHTML =
+        '<img src="assets/serum-front.jpg" alt="">' +
+        '<div class="cart-item__info">' +
+          "<b></b>" +
+          "<span>" + money(item.price * item.qty) + "</span>" +
+          '<div class="cart-item__qty">' +
+            '<button data-i="' + i + '" data-d="-1" aria-label="Decrease quantity">−</button>' +
+            "<span>" + item.qty + "</span>" +
+            '<button data-i="' + i + '" data-d="1" aria-label="Increase quantity">+</button>' +
+          "</div>" +
+        "</div>" +
+        '<button class="cart-item__remove" data-remove="' + i + '">Remove</button>';
+      li.querySelector("b").textContent = item.title;
+      cartItemsEl.appendChild(li);
+    });
+    if (cartEmptyEl) cartEmptyEl.style.display = cart.length ? "none" : "";
+    if (cartFoot) cartFoot.hidden = !cart.length;
+    if (cartTotalEl) cartTotalEl.textContent = money(total);
+    if (cartCountEl) cartCountEl.textContent = count;
+  }
+
+  /* ---------- cart item clicks (both modes) ---------- */
+  if (cartItemsEl) {
+    cartItemsEl.addEventListener("click", function (e) {
+      var btn = e.target.closest("button");
+      if (!btn) return;
+      if (SHOPIFY) {
+        if (btn.hasAttribute("data-key")) {
+          shopifyChange(btn.getAttribute("data-key"), Math.max(0, parseInt(btn.getAttribute("data-q"), 10)));
+        }
+        return;
+      }
+      var cart = loadCart();
+      if (btn.hasAttribute("data-remove")) {
+        cart.splice(parseInt(btn.getAttribute("data-remove"), 10), 1);
+      } else if (btn.hasAttribute("data-i")) {
+        var i = parseInt(btn.getAttribute("data-i"), 10);
+        var d = parseInt(btn.getAttribute("data-d"), 10);
+        cart[i].qty = Math.max(1, cart[i].qty + d);
+      }
+      saveCart(cart);
+      renderDemoCart();
+    });
+  }
+
+  /* ---------- add to cart ---------- */
   var addToCartBtn = $("#addToCart");
   if (addToCartBtn) {
     addToCartBtn.addEventListener("click", function () {
       var b = selectedBundle();
       if (!b) return;
+      if (SHOPIFY) {
+        var bundlesEl = $("#bundles");
+        var variantId = bundlesEl && bundlesEl.getAttribute("data-variant-id");
+        if (variantId) {
+          shopifyAdd(parseInt(variantId, 10), b.qty).then(openCart).catch(function () {
+            addToCartBtn.textContent = "Could not add to cart";
+          });
+        } else {
+          addToCartBtn.textContent = "Select a product in the theme editor";
+          setTimeout(function () {
+            addToCartBtn.innerHTML = 'Add To Cart — <span id="atcPrice"></span> <s id="atcCompare"></s>';
+            atcPrice = $("#atcPrice"); atcCompare = $("#atcCompare");
+            refreshOfferPrice();
+          }, 2500);
+        }
+        return;
+      }
       var cart = loadCart();
       var existing = cart.find(function (item) { return item.id === b.id; });
       if (existing) existing.qty += 1;
       else cart.push({ id: b.id, title: b.title, price: b.price, qty: 1 });
       saveCart(cart);
-      renderCart();
+      renderDemoCart();
       openCart();
     });
   }
 
+  /* ---------- checkout ---------- */
   var checkoutBtn = $("#checkoutBtn");
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", function () {
+      if (SHOPIFY) { window.location.href = "/checkout"; return; }
       checkoutBtn.textContent = "Connect a checkout to go live";
       setTimeout(function () { checkoutBtn.textContent = "Checkout"; }, 2200);
     });
   }
 
-  renderCart();
+  if (SHOPIFY) refreshShopifyCart();
+  else renderDemoCart();
 
   /* ---------- sticky mobile ATC ---------- */
   var stickyAtc = $("#stickyAtc"), offer = $("#offer");
@@ -228,9 +312,9 @@
     observer.observe(offer);
   }
 
-  /* ---------- newsletter ---------- */
+  /* ---------- newsletter (static demo only; Shopify uses a real form) ---------- */
   var newsletterForm = $("#newsletterForm");
-  if (newsletterForm) {
+  if (newsletterForm && !SHOPIFY) {
     newsletterForm.addEventListener("submit", function (e) {
       e.preventDefault();
       newsletterForm.classList.add("is-hidden");

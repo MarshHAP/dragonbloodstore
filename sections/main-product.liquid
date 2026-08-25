@@ -1,0 +1,69 @@
+<section class="product page">
+  <div class="container product__inner">
+    <div class="gallery-col">
+      <div class="gallery gallery--simple">
+        <div class="gallery__thumbs" id="galleryThumbs">
+          {%- for image in product.images limit: 6 -%}
+            <button class="thumb{% if forloop.first %} is-active{% endif %}" data-src="{{ image | image_url: width: 1100 }}" aria-label="View image {{ forloop.index }}">
+              {{ image | image_url: width: 150 | image_tag: alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+        <div class="gallery__main">
+          {%- if product.featured_image -%}
+            {{ product.featured_image | image_url: width: 1100 | image_tag: id: 'galleryMain', alt: product.featured_image.alt }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="buybox">
+      <h1 class="buybox__title">{{ product.title }}</h1>
+      <p class="rating-line">
+        {%- if product.compare_at_price > product.price -%}
+          <b>{{ product.price | money }}</b> <s>{{ product.compare_at_price | money }}</s>
+        {%- else -%}
+          <b>{{ product.price | money }}</b>
+        {%- endif -%}
+      </p>
+
+      {%- form 'product', product -%}
+        {%- assign variant = product.selected_or_first_available_variant -%}
+        {%- unless product.has_only_default_variant -%}
+          <div class="variant-select">
+            <label for="VariantSelect">{{ 'products.product.quantity' | t }}</label>
+            <select id="VariantSelect" name="id">
+              {%- for v in product.variants -%}
+                <option value="{{ v.id }}" {% if v == variant %}selected{% endif %} {% unless v.available %}disabled{% endunless %}>
+                  {{ v.title }} — {{ v.price | money }}{% unless v.available %} ({{ 'products.product.sold_out' | t }}){% endunless %}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {%- else -%}
+          <input type="hidden" name="id" value="{{ variant.id }}">
+        {%- endunless -%}
+
+        <button type="submit" class="btn btn--primary btn--block btn--atc" {% unless variant.available %}disabled{% endunless %}>
+          {%- if variant.available -%}{{ 'products.product.add_to_cart' | t }}{%- else -%}{{ 'products.product.sold_out' | t }}{%- endif -%}
+        </button>
+      {%- endform -%}
+
+      <div class="accordion accordion--product" style="margin-top:1.2rem">
+        <details open>
+          <summary>Product Description</summary>
+          <div class="accordion__body">{{ product.description }}</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product page",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,58 @@
+{
+  "general": {
+    "search": {
+      "title": "Search",
+      "placeholder": "Search our store",
+      "no_results": "No results found for \"{{ terms }}\"",
+      "results_for": "Results for \"{{ terms }}\""
+    },
+    "404": {
+      "title": "Page not found",
+      "subtext": "The page you were looking for doesn't exist.",
+      "link": "Continue shopping"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "cart": {
+    "title": "Your Cart",
+    "close": "Close cart",
+    "empty": "Your Cart Is Empty",
+    "continue_shopping": "Continue Shopping",
+    "subtotal": "Subtotal",
+    "note": "Shipping calculated at checkout · 30 Day Money Back Guarantee",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "update": "Update"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add To Cart",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "view_details": "View details"
+    }
+  },
+  "blogs": {
+    "article": {
+      "read_more": "Read more"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "How can we help?",
+      "send": "Send Message",
+      "success": "Thanks — your message has been sent. We'll be in touch soon!"
+    }
+  },
+  "newsletter": {
+    "placeholder": "Your Email",
+    "submit": "Submit",
+    "success": "Thanks — you're on the list!"
+  }
+}
