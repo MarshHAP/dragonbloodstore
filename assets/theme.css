@@ -653,6 +653,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   aspect-ratio: 3 / 4;
   object-fit: cover;
 }
+.sci-figure--square img { aspect-ratio: 1 / 1; }
 .sci-figure figcaption {
   font-size: 0.78rem; color: var(--ink-soft);
   margin-top: 0.55rem; text-align: center;

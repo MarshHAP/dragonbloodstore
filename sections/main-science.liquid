@@ -35,6 +35,23 @@
   </div>
 </section>
 
+<!-- Where it grows -->
+<section class="sci-split sci-split--tinted">
+  <div class="container sci-split__grid">
+    <figure class="sci-figure sci-figure--square">
+      {%- if section.settings.map_image -%}
+        {{ section.settings.map_image | image_url: width: 1200 | image_tag: alt: 'Map of where the dragon blood tree grows' }}
+      {%- else -%}
+        <img src="{{ 'tree-map.jpg' | asset_url }}" alt="Map of China highlighting Yunnan province, home of the dragon blood tree" width="1200" height="1200">
+      {%- endif -%}
+      <figcaption>{{ section.settings.map_caption }}</figcaption>
+    </figure>
+    <div class="sci-split__copy">
+      {{ section.settings.map_content }}
+    </div>
+  </div>
+</section>
+
 <!-- Stats + biology -->
 <section class="sci-stats">
   <div class="container">
@@ -125,6 +142,10 @@
     { "type": "richtext", "id": "intro_content", "label": "Intro content", "default": "<h2>What Is a Dragon Blood Tree?</h2><p>Dragon blood trees belong to <em>Dracaena</em> — a genus of 60 to 100 species, of which only a handful grow into true trees. A stout trunk is crowned by a dense, upturned umbrella of stiff, sword-like leaves.</p><p>Cut the bark, and the tree appears to bleed. A deep crimson resin seeps from the wound — the legendary <strong>dragon's blood</strong> that gives these trees their name and has been prized for thousands of years.</p><p><strong>Our serum is based on the species found in southern China</strong> — <em>Dracaena cochinchinensis</em>, the Chinese dragon blood tree. It grows on limestone hills across Yunnan and neighbouring regions, and its resin has centuries of history in traditional Chinese practice.</p>" },
     { "type": "image_picker", "id": "intro_image", "label": "Intro image" },
     { "type": "text", "id": "intro_caption", "label": "Intro caption", "default": "The dense, umbrella-shaped crown — a signature of tree-form Dracaena." },
+    { "type": "header", "content": "Where it grows" },
+    { "type": "image_picker", "id": "map_image", "label": "Map image", "info": "Falls back to the bundled Yunnan map." },
+    { "type": "text", "id": "map_caption", "label": "Map caption", "default": "Yunnan, southern China — home of our dragon blood trees." },
+    { "type": "richtext", "id": "map_content", "label": "Where-it-grows content", "default": "<h2>Where Our Trees Grow</h2><p>Our dragon blood trees come from <strong>Yunnan province in southern China</strong> — a high, sun-drenched region of limestone hills and red-earth plateaus on the edge of the Himalayas.</p><p>Yunnan is one of the most botanically rich places on Earth, and it has a deep connection to this tree. Near Kunming, on the famous red earth of Dongchuan, stands a revered ancient dragon tree believed to be around a thousand years old — honoured by local villagers as a symbol of vitality and protection, and now under formal judicial protection.</p><p>It's this landscape — and this species, <em>Dracaena cochinchinensis</em> — that our dragon blood extract is based on.</p>" },
     { "type": "header", "content": "Biology" },
     { "type": "text", "id": "stats_heading", "label": "Stats heading", "default": "A Tree Unlike Any Other" },
     { "type": "richtext", "id": "biology_content", "label": "Biology content", "default": "<h2>Built for Survival</h2><p>Dragon blood trees are monocots — botanical cousins of palms and grasses — yet unlike almost all of their relatives, their trunks thicken year after year through a rare form of secondary growth.</p><p>Every branch splits into two identical limbs, a pattern called dichotomous branching. Repeated over centuries, it produces the tree's iconic dome: a tight lattice of branches tipped with rosettes of leathery, water-conserving leaves.</p><p>That umbrella crown shades the roots, captures moisture from mist and cloud, and lets the species thrive where few other trees survive at all. This hardiness — a metabolism built around protection and repair — is what makes the tree's resin so interesting for skin.</p>" },
