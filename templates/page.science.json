@@ -1,0 +1,118 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-science",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {}
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "~9 m",
+            "label": "tall, with crowns spreading up to 12 m across"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "3–4 yrs",
+            "label": "per full leaf cycle — whole rosettes renew together"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "Rare",
+            "label": "secondary growth — almost unheard of in monocots"
+          }
+        },
+        "e1": {
+          "type": "era",
+          "settings": {}
+        },
+        "e2": {
+          "type": "era",
+          "settings": {
+            "title": "Traditional Chinese practice",
+            "text": "Known as lóng xuè jié, used for centuries in southern China to support healing."
+          }
+        },
+        "e3": {
+          "type": "era",
+          "settings": {
+            "title": "18th century",
+            "text": "Dissolved into the varnish that gave Italian violins their famous red glow."
+          }
+        },
+        "e4": {
+          "type": "era",
+          "settings": {
+            "title": "Today",
+            "text": "Studied and prized in modern skincare for its protective, soothing properties."
+          }
+        },
+        "b1": {
+          "type": "benefit",
+          "settings": {}
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Forms a \"second skin\"",
+            "text": "On application it creates a breathable protective film that shields against the elements."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Rich in antioxidants",
+            "text": "Naturally occurring flavonoids help defend skin against everyday oxidative stress."
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "title": "Supports collagen",
+            "text": "Studied for its role in supporting the collagen that keeps skin firm and smooth."
+          }
+        },
+        "b5": {
+          "type": "benefit",
+          "settings": {
+            "title": "Calms visible redness",
+            "text": "Known for its soothing effect on stressed, sensitised or irritated-looking skin."
+          }
+        },
+        "b6": {
+          "type": "benefit",
+          "settings": {
+            "title": "Locks in moisture",
+            "text": "Helps reduce water loss so skin stays hydrated and comfortable for longer."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

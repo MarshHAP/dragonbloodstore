@@ -1,0 +1,172 @@
+<!-- Science hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__banner hero__banner--science">
+      {%- if section.settings.hero_image -%}
+        {{ section.settings.hero_image | image_url: width: 2000 | image_tag: class: 'hero__photo hero__photo--plain', alt: 'Dragon blood trees' }}
+      {%- else -%}
+        <img class="hero__photo hero__photo--plain" src="{{ 'tree-3.jpg' | asset_url }}" alt="Dragon blood trees with umbrella-shaped crowns on a rocky plateau" width="1086" height="1448">
+      {%- endif -%}
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="sci-eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1>{{ section.settings.heading }}</h1>
+        <p class="hero__sub">{{ section.settings.subheading }}</p>
+        <a href="{{ section.settings.cta_link | default: '/#offer' }}" class="btn btn--primary">{{ section.settings.cta_label }} <u>Risk-Free</u></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What is it -->
+<section class="sci-split">
+  <div class="container sci-split__grid">
+    <div class="sci-split__copy">
+      {{ section.settings.intro_content }}
+    </div>
+    <figure class="sci-figure">
+      {%- if section.settings.intro_image -%}
+        {{ section.settings.intro_image | image_url: width: 1100 | image_tag: alt: 'Dragon blood tree' }}
+      {%- else -%}
+        <img src="{{ 'tree-2.jpg' | asset_url }}" alt="Looking up the pale trunk of a dragon blood tree into its dense green crown" width="1086" height="1448">
+      {%- endif -%}
+      <figcaption>{{ section.settings.intro_caption }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Stats + biology -->
+<section class="sci-stats">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.stats_heading }}</h2>
+    <div class="sci-stats__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stat' -%}
+          <div class="sci-stat" {{ block.shopify_attributes }}><b>{{ block.settings.value }}</b><span>{{ block.settings.label }}</span></div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="sci-split__grid sci-split__grid--rev">
+      <figure class="sci-figure">
+        {%- if section.settings.biology_image -%}
+          {{ section.settings.biology_image | image_url: width: 1100 | image_tag: alt: 'Dragon blood tree canopy' }}
+        {%- else -%}
+          <img src="{{ 'tree-1.jpg' | asset_url }}" alt="The lattice of branches inside a dragon blood tree canopy, seen from below" width="1086" height="1448">
+        {%- endif -%}
+        <figcaption>{{ section.settings.biology_caption }}</figcaption>
+      </figure>
+      <div class="sci-split__copy">
+        {{ section.settings.biology_content }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resin timeline -->
+<section class="sci-resin">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.resin_heading }}</h2>
+    <p class="sci-lead">{{ section.settings.resin_lead }}</p>
+    <div class="sci-timeline">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'era' -%}
+          <div class="sci-era" {{ block.shopify_attributes }}><b>{{ block.settings.title }}</b><span>{{ block.settings.text }}</span></div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- Skin benefits -->
+<section class="sci-benefits">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.benefits_heading }}</h2>
+    <p class="sci-lead">{{ section.settings.benefits_lead }}</p>
+    <div class="benefit-cards">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'benefit' -%}
+          <div class="benefit-tile" {{ block.shopify_attributes }}><b>{{ block.settings.title }}</b><span>{{ block.settings.text }}</span></div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- From tree to bottle -->
+<section class="sci-split sci-split--tinted">
+  <div class="container sci-split__grid">
+    <div class="sci-split__copy">
+      {{ section.settings.formula_content }}
+      <a href="{{ section.settings.cta_link | default: '/#offer' }}" class="btn btn--primary">{{ section.settings.cta_label }} <u>Risk-Free</u></a>
+    </div>
+    <figure class="sci-figure">
+      {%- if section.settings.formula_image -%}
+        {{ section.settings.formula_image | image_url: width: 1100 | image_tag: alt: 'Dragon blood trees' }}
+      {%- else -%}
+        <img src="{{ 'tree-4.jpg' | asset_url }}" alt="Dragon blood trees on a sunlit rocky hillside beneath a spiny canopy" width="1086" height="1448">
+      {%- endif -%}
+      <figcaption>{{ section.settings.formula_caption }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Science page",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "Falls back to the bundled tree photo." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Science" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Tree That Bleeds Red" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Meet the dragon blood tree — the ancient botanical whose crimson resin powers every bottle of Dragonblood® serum." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Try Dragonblood" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "header", "content": "Intro" },
+    { "type": "richtext", "id": "intro_content", "label": "Intro content", "default": "<h2>What Is a Dragon Blood Tree?</h2><p>Dragon blood trees belong to <em>Dracaena</em> — a genus of 60 to 100 species, of which only a handful grow into true trees. A stout trunk is crowned by a dense, upturned umbrella of stiff, sword-like leaves.</p><p>Cut the bark, and the tree appears to bleed. A deep crimson resin seeps from the wound — the legendary <strong>dragon's blood</strong> that gives these trees their name and has been prized for thousands of years.</p><p><strong>Our serum is based on the species found in southern China</strong> — <em>Dracaena cochinchinensis</em>, the Chinese dragon blood tree. It grows on limestone hills across Yunnan and neighbouring regions, and its resin has centuries of history in traditional Chinese practice.</p>" },
+    { "type": "image_picker", "id": "intro_image", "label": "Intro image" },
+    { "type": "text", "id": "intro_caption", "label": "Intro caption", "default": "The dense, umbrella-shaped crown — a signature of tree-form Dracaena." },
+    { "type": "header", "content": "Biology" },
+    { "type": "text", "id": "stats_heading", "label": "Stats heading", "default": "A Tree Unlike Any Other" },
+    { "type": "richtext", "id": "biology_content", "label": "Biology content", "default": "<h2>Built for Survival</h2><p>Dragon blood trees are monocots — botanical cousins of palms and grasses — yet unlike almost all of their relatives, their trunks thicken year after year through a rare form of secondary growth.</p><p>Every branch splits into two identical limbs, a pattern called dichotomous branching. Repeated over centuries, it produces the tree's iconic dome: a tight lattice of branches tipped with rosettes of leathery, water-conserving leaves.</p><p>That umbrella crown shades the roots, captures moisture from mist and cloud, and lets the species thrive where few other trees survive at all. This hardiness — a metabolism built around protection and repair — is what makes the tree's resin so interesting for skin.</p>" },
+    { "type": "image_picker", "id": "biology_image", "label": "Biology image" },
+    { "type": "text", "id": "biology_caption", "label": "Biology caption", "default": "Inside the canopy: each branch divides in two, again and again." },
+    { "type": "header", "content": "Resin timeline" },
+    { "type": "text", "id": "resin_heading", "label": "Resin heading", "default": "The Crimson Resin" },
+    { "type": "textarea", "id": "resin_lead", "label": "Resin lead", "default": "When the bark is wounded, the tree seals the cut with a rich red resin — its own natural repair system. Harvesters have tapped small amounts of this resin for millennia, without felling the tree." },
+    { "type": "header", "content": "Skin benefits" },
+    { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "What It Does for Skin" },
+    { "type": "textarea", "id": "benefits_lead", "label": "Benefits lead", "default": "Modern research into dragon's blood resin points to the same theme the tree itself embodies: protection and repair." },
+    { "type": "header", "content": "Formula" },
+    { "type": "richtext", "id": "formula_content", "label": "Formula content", "default": "<h2>From Tree to Bottle</h2><p>Dragonblood® Anti-Ageing Serum pairs dragon blood extract with two partners chosen to complete the story: ceramide NP, a skin-identical lipid that helps repair and stabilise the barrier, and glossy ganoderma, a deeply moisturising mushroom extract.</p><p><em>Dragon trees grow slowly, and some island species are considered vulnerable. Our extract is based on the cultivated southern-China species — tapped from the bark, never felled.</em></p>" },
+    { "type": "image_picker", "id": "formula_image", "label": "Formula image" },
+    { "type": "text", "id": "formula_caption", "label": "Formula caption", "default": "Slow-growing and long-lived — the resin is collected without harming the tree." }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat tile",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "1000+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "years — ages reached by the oldest dragon trees" }
+      ]
+    },
+    {
+      "type": "era",
+      "name": "Timeline era",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Ancient world" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Traded across the Mediterranean and Arabia as a precious dye, incense and remedy." }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Skin benefit",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Supports the skin barrier" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Resin compounds help reinforce skin's natural protective layer and support its recovery." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Science page" }]
+}
+{% endschema %}

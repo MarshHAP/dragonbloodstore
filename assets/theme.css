@@ -628,9 +628,95 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 .rte img { border-radius: var(--radius-sm); }
 .gallery--simple { grid-template-columns: 64px 1fr; }
 
+/* ---------- science page ---------- */
+.hero__banner--science { min-height: 480px; }
+.hero__photo--plain { mix-blend-mode: normal; opacity: 1; filter: none; object-position: center 60%; }
+.sci-eyebrow {
+  text-transform: uppercase; letter-spacing: 0.2em;
+  font-size: 0.72rem; font-weight: 700;
+  color: #ffd9e2; margin-bottom: 0.6rem;
+}
+.sci-split { padding: 3.6rem 0; }
+.sci-split--tinted { background: var(--tint); }
+.sci-split__grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.6rem; align-items: center;
+}
+.sci-split__grid--rev { margin-top: 3rem; }
+.sci-split__copy h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: 0.9rem; }
+.sci-split__copy p { color: var(--ink-soft); margin-bottom: 0.9rem; font-size: 0.98rem; }
+.sci-split__copy .btn { margin-top: 0.4rem; }
+.sci-figure { margin: 0; }
+.sci-figure img {
+  border-radius: var(--radius);
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.sci-figure figcaption {
+  font-size: 0.78rem; color: var(--ink-soft);
+  margin-top: 0.55rem; text-align: center;
+}
+.sci-stats { padding: 3.6rem 0; background: #fff; }
+.sci-stats__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  margin-bottom: 1rem;
+}
+.sci-stat {
+  background: var(--mist);
+  border-radius: var(--radius-sm);
+  padding: 1.3rem 1.1rem;
+  text-align: center;
+}
+.sci-stat b { display: block; font-family: var(--font-display); font-size: 1.6rem; color: var(--red-900); margin-bottom: 0.25rem; }
+.sci-stat span { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; display: block; }
+.sci-lead {
+  max-width: 640px; margin: -1rem auto 2rem;
+  text-align: center; color: var(--ink-soft); font-size: 0.98rem;
+}
+.sci-resin { padding: 3.6rem 0; background: var(--red-950); }
+.sci-resin .section-title, .sci-resin .sci-lead { color: #fff; }
+.sci-resin .sci-lead { color: rgba(255, 255, 255, 0.85); }
+.sci-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.sci-era {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.1rem;
+  color: #fff;
+}
+.sci-era b { display: block; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.sci-era span { font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); line-height: 1.45; }
+.sci-benefits { padding: 3.6rem 0; }
+.benefit-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.benefit-tile {
+  border: 1px solid var(--sage);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.15rem;
+  background: #fff;
+}
+.benefit-tile b { display: block; margin-bottom: 0.35rem; font-size: 0.95rem; color: var(--red-900); }
+.benefit-tile span { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+.sci-list { list-style: none; margin-bottom: 1rem; display: grid; gap: 0.6rem; }
+.sci-list li {
+  background: #fff;
+  border: 1px solid var(--sage);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  font-size: 0.92rem; color: var(--ink-soft);
+}
+.sci-list li b { color: var(--ink); }
+.sci-note { font-size: 0.85rem !important; font-style: italic; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .hero__banner { min-height: 380px; }
+  .sci-split__grid { grid-template-columns: 1fr; }
+  .sci-split__grid .sci-figure { order: -1; }
+  .sci-split__grid--rev .sci-figure { order: 0; }
+  .sci-stats__grid { grid-template-columns: 1fr 1fr; }
+  .sci-timeline { grid-template-columns: 1fr 1fr; }
+  .benefit-cards { grid-template-columns: 1fr 1fr; }
   .testimonial-grid, .testimonial-grid--wall { grid-template-columns: 1fr 1fr; }
   .benefits__grid { grid-template-columns: 1fr; }
   .benefits__media { order: -1; }
@@ -652,6 +738,9 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   .ritual-step { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .sticky-atc { display: flex; }
+  .sci-timeline { grid-template-columns: 1fr; }
+  .benefit-cards { grid-template-columns: 1fr; }
+  .sci-stats__grid { grid-template-columns: 1fr 1fr; }
   .hero__content { padding: 2.2rem 1.4rem; }
   .hero__banner { min-height: 460px; align-items: flex-end; }
   .hero__scrim { background: linear-gradient(0deg, rgba(45,6,15,0.85) 0%, rgba(45,6,15,0.35) 55%, rgba(45,6,15,0.05) 100%); }
