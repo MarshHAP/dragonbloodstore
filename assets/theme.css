@@ -230,7 +230,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: linear-gradient(180deg, #f7e7e4 0%, #f2ddd9 46%, #e7c4bb 100%);
+  background: linear-gradient(155deg, #f8ebea 0%, #f3e1df 38%, #ebccc3 72%, #e3bab0 100%);
   padding-top: 2.6rem;
   min-height: 0;
 }
@@ -255,9 +255,14 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   justify-content: center;
 }
 .hero__product {
-  width: min(560px, 92%);
-  margin-top: 0.6rem;
+  width: min(620px, 100%);
+  margin-top: 0.4rem;
   display: block;
+  aspect-ratio: 1 / 0.92;
+  object-fit: cover;
+  object-position: 56% 42%;
+  -webkit-mask-image: radial-gradient(105% 105% at 50% 46%, #000 38%, transparent 86%);
+  mask-image: radial-gradient(105% 105% at 50% 46%, #000 38%, transparent 86%);
 }
 
 /* ---------- testimonial cards ---------- */
