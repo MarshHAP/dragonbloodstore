@@ -5,15 +5,15 @@
 
 :root {
   /* red palette (mapped from the reference's green tokens at equal depth) */
-  --red-950: #2d060f;   /* announcement bar, near-black red   (was #062d1e) */
-  --red-900: #521424;   /* primary buttons, dark sections     (was #154b32) */
-  --red-800: #5e1d2e;   /* hover / secondary dark             (was #1d583e) */
-  --accent:  #9b1941;   /* bundle accent                      (was #199b62) */
-  --accent-soft: #de4879;
-  --tint:    #fff2f5;   /* pale red tint                      (was #f2fffa) */
-  --sage:    #e6d9dc;   /* soft border                        (was #dce4e0) */
-  --sage-2:  #d8cace;   /* border-2                           (was #d3ddd8) */
-  --mist:    #efeaec;   /* light gray-red bg                  (was #eaefed) */
+  --red-950: #330d07;   /* announcement bar, near-black red   (was #062d1e) */
+  --red-900: #7f1d12;   /* primary buttons, dark sections     (was #154b32) */
+  --red-800: #96261a;   /* hover / secondary dark             (was #1d583e) */
+  --accent:  #bb2413;   /* bundle accent                      (was #199b62) */
+  --accent-soft: #e05c4a;
+  --tint:    #fdf1ec;   /* pale red tint                      (was #f2fffa) */
+  --sage:    #ead9d3;   /* soft border                        (was #dce4e0) */
+  --sage-2:  #dcc8c1;   /* border-2                           (was #d3ddd8) */
+  --mist:    #f1e9e6;   /* light gray-red bg                  (was #eaefed) */
   --ink: #111111;
   --ink-soft: #555555;
   --white: #ffffff;
@@ -82,7 +82,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   border-radius: 999px;
   padding: 0.45rem 1rem;
   font-size: 0.8rem; font-weight: 600; color: var(--ink);
-  box-shadow: 0 2px 8px rgba(45, 6, 15, 0.06);
+  box-shadow: 0 2px 8px rgba(51, 13, 7, 0.06);
 }
 .guarantee-pill svg { color: var(--red-900); flex: none; }
 .guarantee-pill--light { margin-top: 0.9rem; }
@@ -190,7 +190,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 .hero__content h1 { color: var(--red-900); }
 /* science page keeps the dark cinematic hero */
 .hero__banner--science .hero__scrim {
-  background: linear-gradient(90deg, rgba(45, 6, 15, 0.78) 0%, rgba(45, 6, 15, 0.42) 45%, rgba(45, 6, 15, 0.05) 75%);
+  background: linear-gradient(90deg, rgba(51, 13, 7, 0.78) 0%, rgba(51, 13, 7, 0.42) 45%, rgba(51, 13, 7, 0.05) 75%);
 }
 .hero__banner--science .hero__content { color: #fff; }
 .hero__banner--science .hero__content h1 { color: #fff; }
@@ -225,10 +225,10 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   min-width: min(420px, 80vw);
   padding: 1rem 2rem;
 }
-.hero__banner--home .btn--hero:hover { background: rgba(82, 20, 36, 0.06); }
+.hero__banner--home .btn--hero:hover { background: rgba(127, 29, 18, 0.06); }
 .hero__banner--home .guarantee-pill {
   background: rgba(255, 255, 255, 0.55);
-  border-color: rgba(82, 20, 36, 0.15);
+  border-color: rgba(127, 29, 18, 0.15);
   min-width: min(420px, 80vw);
   justify-content: center;
 }
@@ -584,7 +584,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 .newsletter input:focus { outline: 2px solid var(--accent); }
 .newsletter .btn { padding: 0.65rem 1.2rem; background: var(--accent); }
 .newsletter .btn:hover { background: var(--accent-soft); }
-.newsletter__thanks { color: #ffd9e2 !important; font-weight: 600; margin-top: 0.6rem; }
+.newsletter__thanks { color: #ffd9cf !important; font-weight: 600; margin-top: 0.6rem; }
 .footer-legal {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding-top: 1.4rem;
@@ -601,7 +601,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   align-items: center; gap: 0.8rem;
   background: #fff;
   border-top: 1px solid var(--sage);
-  box-shadow: 0 -6px 20px rgba(45, 6, 15, 0.12);
+  box-shadow: 0 -6px 20px rgba(51, 13, 7, 0.12);
   padding: 0.7rem 1rem;
   transform: translateY(110%);
   transition: transform 0.25s ease;
@@ -626,7 +626,7 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   display: flex; flex-direction: column;
   transform: translateX(105%);
   transition: transform 0.28s ease;
-  box-shadow: -12px 0 40px rgba(45, 6, 15, 0.2);
+  box-shadow: -12px 0 40px rgba(51, 13, 7, 0.2);
 }
 .cart-drawer.is-open { transform: translateX(0); }
 .cart-drawer__head {
@@ -725,12 +725,12 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 .gallery--simple { grid-template-columns: 64px 1fr; }
 
 /* ---------- science page ---------- */
-.hero__banner--science { min-height: 480px; background: radial-gradient(120% 160% at 85% 30%, #7c2437 0%, var(--red-900) 45%, var(--red-950) 100%); }
+.hero__banner--science { min-height: 480px; background: radial-gradient(120% 160% at 85% 30%, #a03325 0%, var(--red-900) 45%, var(--red-950) 100%); }
 .hero__photo--plain { mix-blend-mode: normal; opacity: 1; filter: none; object-position: center 60%; }
 .sci-eyebrow {
   text-transform: uppercase; letter-spacing: 0.2em;
   font-size: 0.72rem; font-weight: 700;
-  color: #ffd9e2; margin-bottom: 0.6rem;
+  color: #ffd9cf; margin-bottom: 0.6rem;
 }
 .sci-split { padding: 3.6rem 0; }
 .sci-split--tinted { background: var(--tint); }

@@ -14,19 +14,19 @@
         "type": "color",
         "id": "color_primary",
         "label": "Primary (dark red)",
-        "default": "#521424"
+        "default": "#7f1d12"
       },
       {
         "type": "color",
         "id": "color_dark",
         "label": "Dark background (near-black red)",
-        "default": "#2d060f"
+        "default": "#330d07"
       },
       {
         "type": "color",
         "id": "color_accent",
         "label": "Accent (crimson)",
-        "default": "#9b1941"
+        "default": "#bb2413"
       }
     ]
   },
