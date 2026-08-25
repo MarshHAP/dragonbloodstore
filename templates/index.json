@@ -41,7 +41,7 @@
         "b1": {
           "type": "benefit",
           "settings": {
-            "fallback_image": "serum-benefits.jpg"
+            "fallback_image": "benefit-1.jpg"
           }
         },
         "b2": {
@@ -50,7 +50,7 @@
             "icon": "drop",
             "title": "Deep, Lasting Hydration",
             "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.",
-            "fallback_image": "serum-ingredients.jpg"
+            "fallback_image": "benefit-2.jpg"
           }
         },
         "b3": {
@@ -59,7 +59,7 @@
             "icon": "refresh",
             "title": "An Easy Daily Habit",
             "text": "A few drops, morning and night. Simple to use every day and easy to fit into your routine.",
-            "fallback_image": "serum-dropper.jpg"
+            "fallback_image": "benefit-3.jpg"
           }
         },
         "b4": {
@@ -68,7 +68,7 @@
             "icon": "sprout",
             "title": "A Sacred Natural Formula",
             "text": "A clean, focused formula built around resin from the sacred dragon blood tree.",
-            "fallback_image": "tree-3.jpg"
+            "fallback_image": "benefit-4.jpg"
           }
         }
       },

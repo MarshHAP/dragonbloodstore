@@ -39,7 +39,7 @@
         {%- if first.settings.image -%}
           {{ first.settings.image | image_url: width: 1200 | image_tag: id: 'benefitsImage', alt: first.settings.title }}
         {%- else -%}
-          <img id="benefitsImage" src="{{ first.settings.fallback_image | default: 'serum-benefits.jpg' | asset_url }}" alt="{{ first.settings.title | escape }}" width="880" height="880">
+          <img id="benefitsImage" src="{{ first.settings.fallback_image | default: 'benefit-1.jpg' | asset_url }}" alt="{{ first.settings.title | escape }}" width="880" height="880">
         {%- endif -%}
       </div>
     </div>
@@ -82,7 +82,7 @@
         { "type": "text", "id": "title", "label": "Title", "default": "Repairs the Skin Barrier" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "Dragon blood extract and ceramide NP help strengthen and repair your skin's natural protective barrier." },
         { "type": "image_picker", "id": "image", "label": "Image (shown when this benefit is selected)" },
-        { "type": "text", "id": "fallback_image", "label": "Fallback asset filename", "default": "serum-benefits.jpg", "info": "Used when no image is picked." }
+        { "type": "text", "id": "fallback_image", "label": "Fallback asset filename", "default": "benefit-1.jpg", "info": "Used when no image is picked." }
       ]
     }
   ],
@@ -92,9 +92,9 @@
       "name": "Benefits accordion",
       "blocks": [
         { "type": "benefit" },
-        { "type": "benefit", "settings": { "icon": "drop", "title": "Deep, Lasting Hydration", "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.", "fallback_image": "serum-ingredients.jpg" } },
-        { "type": "benefit", "settings": { "icon": "refresh", "title": "An Easy Daily Habit", "text": "A few drops, morning and night. Simple to use every day and easy to fit into your routine.", "fallback_image": "serum-dropper.jpg" } },
-        { "type": "benefit", "settings": { "icon": "sprout", "title": "A Sacred Natural Formula", "text": "A clean, focused formula built around resin from the sacred dragon blood tree.", "fallback_image": "tree-3.jpg" } }
+        { "type": "benefit", "settings": { "icon": "drop", "title": "Deep, Lasting Hydration", "text": "Glossy ganoderma deeply moisturises, so skin stays plump and comfortable from morning to night.", "fallback_image": "benefit-2.jpg" } },
+        { "type": "benefit", "settings": { "icon": "refresh", "title": "An Easy Daily Habit", "text": "A few drops, morning and night. Simple to use every day and easy to fit into your routine.", "fallback_image": "benefit-3.jpg" } },
+        { "type": "benefit", "settings": { "icon": "sprout", "title": "A Sacred Natural Formula", "text": "A clean, focused formula built around resin from the sacred dragon blood tree.", "fallback_image": "benefit-4.jpg" } }
       ]
     }
   ]
