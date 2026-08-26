@@ -115,6 +115,14 @@
     });
   }
 
+  /* ---------- product process flip tiles ---------- */
+  $$(".flip-card").forEach(function (card) {
+    card.addEventListener("click", function () {
+      var flipped = card.classList.toggle("is-flipped");
+      card.setAttribute("aria-pressed", flipped ? "true" : "false");
+    });
+  });
+
   /* ---------- rotating image banners ---------- */
   $$(".js-rotator").forEach(function (rot) {
     var imgs = rot.querySelectorAll("img");

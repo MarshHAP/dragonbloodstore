@@ -198,6 +198,33 @@
       ],
       "settings": {}
     },
+    "process": {
+      "type": "product-process",
+      "blocks": {
+        "st1": {
+          "type": "step",
+          "settings": {}
+        },
+        "st2": {
+          "type": "step",
+          "settings": { "fallback_image": "process-2.jpg", "title": "Turn Into Powder", "text": "The resin is cleaned and finely milled into a delicate powder." }
+        },
+        "st3": {
+          "type": "step",
+          "settings": { "fallback_image": "process-3.jpg", "title": "Turn Into Liquid & Mix Into Solution", "text": "The powder is dissolved and blended with carefully selected ingredients." }
+        },
+        "st4": {
+          "type": "step",
+          "settings": { "fallback_image": "process-4.jpg", "title": "Bottle Into Final Product", "text": "The solution is bottled in our signature packaging to preserve its purity and potency." }
+        },
+        "st5": {
+          "type": "step",
+          "settings": { "fallback_image": "process-5.jpg", "title": "Used Twice Daily for Skin Care", "text": "Apply morning and night to clean skin for best results." }
+        }
+      },
+      "block_order": ["st1", "st2", "st3", "st4", "st5"],
+      "settings": {}
+    },
     "ritual": {
       "type": "daily-ritual",
       "blocks": {
@@ -341,6 +368,7 @@
     "benefits",
     "buybox",
     "beforeafter",
+    "process",
     "ritual",
     "wall",
     "faq",

@@ -1,0 +1,64 @@
+{%- assign flip_icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3v4h-4"/></svg>' -%}
+
+<section class="process">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <p class="sci-lead">{{ section.settings.lead }}</p>
+    <div class="process-grid">
+      {%- for block in section.blocks -%}
+        <button class="flip-card" aria-pressed="false" aria-label="Step {{ forloop.index }}: {{ block.settings.title | escape }}. Tap to flip." {{ block.shopify_attributes }}>
+          <span class="flip-card__inner">
+            <span class="flip-card__face">
+              {%- if block.settings.image -%}
+                {{ block.settings.image | image_url: width: 900 | image_tag: alt: '', loading: 'lazy' }}
+              {%- else -%}
+                <img src="{{ block.settings.fallback_image | asset_url }}" alt="" loading="lazy">
+              {%- endif -%}
+              <span class="flip-card__step" aria-hidden="true">{{ forloop.index }}</span>
+              <span class="flip-card__hint" aria-hidden="true">{{ flip_icon }}</span>
+            </span>
+            <span class="flip-card__face flip-card__back">
+              <b>{{ block.settings.title }}</b>
+              <span>{{ block.settings.text }}</span>
+            </span>
+          </span>
+        </button>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product process",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How Dragonblood Is Made" },
+    { "type": "textarea", "id": "lead", "label": "Lead", "default": "From ancient tree to your daily ritual. Tap each step to see how it's done." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Process step",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "fallback_image", "label": "Fallback asset filename", "default": "process-1.jpg", "info": "Used when no image is picked." },
+        { "type": "text", "id": "title", "label": "Title", "default": "Harvest Tree Resin" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Sustainably harvested from the Dragon Blood Tree in Yunnan, China." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Product process",
+      "blocks": [
+        { "type": "step" },
+        { "type": "step", "settings": { "fallback_image": "process-2.jpg", "title": "Turn Into Powder", "text": "The resin is cleaned and finely milled into a delicate powder." } },
+        { "type": "step", "settings": { "fallback_image": "process-3.jpg", "title": "Turn Into Liquid & Mix Into Solution", "text": "The powder is dissolved and blended with carefully selected ingredients." } },
+        { "type": "step", "settings": { "fallback_image": "process-4.jpg", "title": "Bottle Into Final Product", "text": "The solution is bottled in our signature packaging to preserve its purity and potency." } },
+        { "type": "step", "settings": { "fallback_image": "process-5.jpg", "title": "Used Twice Daily for Skin Care", "text": "Apply morning and night to clean skin for best results." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
