@@ -906,6 +906,12 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 }
 .sci-list li b { color: var(--ink); }
 .sci-note { font-size: 0.85rem !important; font-style: italic; }
+.sci-sources { padding: 0 0 2.8rem; }
+.sci-sources p {
+  max-width: 720px; margin: 0 auto;
+  text-align: center; font-style: italic;
+  font-size: 0.78rem; color: var(--ink-soft);
+}
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {

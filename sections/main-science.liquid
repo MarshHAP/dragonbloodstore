@@ -94,6 +94,38 @@
   </div>
 </section>
 
+<!-- What's in it -->
+<section class="sci-benefits">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.compounds_heading }}</h2>
+    <p class="sci-lead">{{ section.settings.compounds_lead }}</p>
+    <div class="benefit-cards">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'compound' -%}
+          <div class="benefit-tile" {{ block.shopify_attributes }}><b>{{ block.settings.title }}</b><span>{{ block.settings.text }}</span></div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- Skin barrier -->
+<section class="sci-split sci-split--tinted">
+  <div class="container sci-split__grid">
+    <figure class="sci-figure sci-figure--square">
+      {%- if section.settings.barrier_image -%}
+        {{ section.settings.barrier_image | image_url: width: 1100 | image_tag: alt: 'Dragon blood resin' }}
+      {%- else -%}
+        <img src="{{ 'serum-extract.jpg' | asset_url }}" alt="Deep red dragon's blood resin beside the serum bottle" width="1100" height="1100">
+      {%- endif -%}
+      <figcaption>{{ section.settings.barrier_caption }}</figcaption>
+    </figure>
+    <div class="sci-split__copy">
+      {{ section.settings.barrier_content }}
+    </div>
+  </div>
+</section>
+
 <!-- Skin benefits -->
 <section class="sci-benefits">
   <div class="container">
@@ -106,6 +138,14 @@
         {%- endif -%}
       {%- endfor -%}
     </div>
+  </div>
+</section>
+
+<!-- Gentle by nature -->
+<section class="sci-benefits">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.gentle_heading }}</h2>
+    <p class="sci-lead">{{ section.settings.gentle_lead }}</p>
   </div>
 </section>
 
@@ -127,6 +167,13 @@
   </div>
 </section>
 
+{%- if section.settings.sources_text != blank -%}
+<!-- Sources / disclaimer -->
+<section class="sci-sources">
+  <div class="container"><p>{{ section.settings.sources_text }}</p></div>
+</section>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Science page",
@@ -135,11 +182,11 @@
     { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "Falls back to the bundled tree photo." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Science" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "The Tree That Bleeds Red" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Meet the dragon blood tree - the ancient botanical whose crimson resin powers every bottle of Dragonblood® serum." },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "An ancient resin, backed by modern research - meet the tree whose crimson \"dragon's blood\" powers every bottle of Dragonblood® serum." },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Try Dragonblood" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "header", "content": "Intro" },
-    { "type": "richtext", "id": "intro_content", "label": "Intro content", "default": "<h2>What Is a Dragon Blood Tree?</h2><p>Dragon blood trees belong to <em>Dracaena</em> - a genus of 60 to 100 species, of which only a handful grow into true trees. A stout trunk is crowned by a dense, upturned umbrella of stiff, sword-like leaves.</p><p>Cut the bark, and the tree appears to bleed. A deep crimson resin seeps from the wound - the legendary <strong>dragon's blood</strong> that gives these trees their name and has been prized for thousands of years.</p><p><strong>Our serum is based on the species found in southern China</strong> - <em>Dracaena cochinchinensis</em>, the Chinese dragon blood tree. It grows on limestone hills across Yunnan and neighbouring regions, and its resin has centuries of history in traditional Chinese practice.</p>" },
+    { "type": "richtext", "id": "intro_content", "label": "Intro content", "default": "<h2>What Is Dragon's Blood?</h2><p>Dragon's blood isn't a marketing name. It's the traditional name for the deep red resin tapped from the bark of a handful of remarkable trees - from <em>Croton lechleri</em> in the Amazon rainforest and <em>Daemonorops draco</em> in Southeast Asia to the <em>Dracaena</em> dragon trees of Asia. For centuries, communities have applied the sap directly to cuts, burns and irritated skin to protect it and speed healing - and today, dermatology and cosmetic science are catching up with what traditional medicine already knew.</p><p>Dragon blood trees belong to <em>Dracaena</em> - a genus of 60 to 100 species, of which only a handful grow into true trees. A stout trunk is crowned by a dense, upturned umbrella of stiff, sword-like leaves.</p><p>Cut the bark, and the tree appears to bleed. A deep crimson resin seeps from the wound - the legendary <strong>dragon's blood</strong> that gives these trees their name and has been prized for thousands of years.</p><p><strong>Our serum is based on the species found in southern China</strong> - <em>Dracaena cochinchinensis</em>, the Chinese dragon blood tree. It grows on limestone hills across Yunnan and neighbouring regions, and its resin has centuries of history in traditional Chinese practice.</p>" },
     { "type": "image_picker", "id": "intro_image", "label": "Intro image" },
     { "type": "text", "id": "intro_caption", "label": "Intro caption", "default": "The dense, umbrella-shaped crown - a signature of tree-form Dracaena." },
     { "type": "header", "content": "Where it grows" },
@@ -153,12 +200,24 @@
     { "type": "text", "id": "biology_caption", "label": "Biology caption", "default": "Inside the canopy: each branch divides in two, again and again." },
     { "type": "header", "content": "Resin timeline" },
     { "type": "text", "id": "resin_heading", "label": "Resin heading", "default": "The Crimson Resin" },
-    { "type": "textarea", "id": "resin_lead", "label": "Resin lead", "default": "When the bark is wounded, the tree seals the cut with a rich red resin - its own natural repair system. Harvesters have tapped small amounts of this resin for millennia, without felling the tree." },
+    { "type": "textarea", "id": "resin_lead", "label": "Resin lead", "default": "When the bark is wounded, the tree seals the cut with a rich red resin - its own natural repair system, tapped for millennia without felling the tree. This is not a trend ingredient: what's changed isn't the resin, it's our ability to isolate and study the compounds responsible for what it does." },
+    { "type": "header", "content": "What's in it" },
+    { "type": "text", "id": "compounds_heading", "label": "Compounds heading", "default": "What's Actually in It" },
+    { "type": "textarea", "id": "compounds_lead", "label": "Compounds lead", "default": "The resin isn't a single \"active\" - it's a concentrated mix of plant compounds, several of which have documented effects on skin." },
+    { "type": "header", "content": "Skin barrier" },
+    { "type": "image_picker", "id": "barrier_image", "label": "Barrier image", "info": "Falls back to the bundled resin photo." },
+    { "type": "text", "id": "barrier_caption", "label": "Barrier caption", "default": "The resin itself - a concentrated mix of protective plant compounds." },
+    { "type": "richtext", "id": "barrier_content", "label": "Barrier content", "default": "<h2>What This Means for Your Skin Barrier</h2><p>Your skin's barrier is the outermost layer that keeps moisture in and irritants out. When it's compromised - by over-exfoliation, harsh actives, weather, or simply age - skin gets reactive, dehydrated and dull faster.</p><p>Dragon's blood extract is studied for its ability to support that barrier function directly: helping reduce water loss through the skin, calming visible redness and irritation, and giving skin the conditions it needs to repair itself.</p><p><strong>That's why it works as a daily layer rather than an occasional treatment</strong> - it supports a process instead of masking a symptom.</p>" },
+    { "type": "header", "content": "Gentle by nature" },
+    { "type": "text", "id": "gentle_heading", "label": "Gentle heading", "default": "Gentle by Nature" },
+    { "type": "textarea", "id": "gentle_lead", "label": "Gentle lead", "default": "Unlike retinoids or high-strength acids, dragon's blood extract is considered a gentle ingredient with a low irritation profile - which is part of why it suits sensitive, reactive and compromised skin as well as normal skin. As with any new ingredient, patch test before full use, particularly if you have a latex sensitivity, since the resin shares some botanical similarity with natural latex." },
+    { "type": "header", "content": "Sources" },
+    { "type": "textarea", "id": "sources_text", "label": "Sources / disclaimer", "default": "Sources: Skincare.com (L'Oréal), \"The Skin-Care Benefits of Dragon's Blood\"; Clinikally, \"Dragon's Blood Resin: The Ancient Skin Protector Making a Modern Comeback\". This page is for educational purposes and reflects general ingredient research; individual results vary. Always patch test new products and consult a dermatologist for specific skin concerns." },
     { "type": "header", "content": "Skin benefits" },
     { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "What It Does for Skin" },
     { "type": "textarea", "id": "benefits_lead", "label": "Benefits lead", "default": "Modern research into dragon's blood resin points to the same theme the tree itself embodies: protection and repair." },
     { "type": "header", "content": "Formula" },
-    { "type": "richtext", "id": "formula_content", "label": "Formula content", "default": "<h2>From Tree to Bottle</h2><p>Dragonblood® Anti-Ageing Serum pairs dragon blood extract with two partners chosen to complete the story: ceramide NP, a skin-identical lipid that helps repair and stabilise the barrier, and glossy ganoderma, a deeply moisturising mushroom extract.</p><p><em>Dragon trees grow slowly, and some island species are considered vulnerable. Our extract is based on the cultivated southern-China species - tapped from the bark, never felled.</em></p>" },
+    { "type": "richtext", "id": "formula_content", "label": "Formula content", "default": "<h2>From Tree to Bottle</h2><p><strong>The takeaway:</strong> dragon's blood works because of what's actually in it - antioxidant-rich proanthocyanidins, repair-supporting taspine, and a broader phenolic profile that together calm, protect and help skin recover its own barrier function. Every drop of our formula starts there, paired with ceramide NP, a skin-identical lipid that helps repair and stabilise the barrier, and glossy ganoderma, a deeply moisturising mushroom extract.</p><p><em>Dragon trees grow slowly, and some island species are considered vulnerable. Our extract is based on the cultivated southern-China species - tapped from the bark, never felled.</em></p>" },
     { "type": "image_picker", "id": "formula_image", "label": "Formula image" },
     { "type": "text", "id": "formula_caption", "label": "Formula caption", "default": "Slow-growing and long-lived - the resin is collected without harming the tree." }
   ],
@@ -177,6 +236,14 @@
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Ancient world" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "Traded across the Mediterranean and Arabia as a precious dye, incense and remedy." }
+      ]
+    },
+    {
+      "type": "compound",
+      "name": "Compound card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Proanthocyanidins" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "The majority of the resin's dry weight. Potent antioxidants that help neutralise the free radicals generated by UV exposure, pollution and everyday environmental stress." }
       ]
     },
     {
