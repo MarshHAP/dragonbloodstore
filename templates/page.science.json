@@ -137,9 +137,41 @@
         "b6"
       ],
       "settings": {}
+    },
+    "press": {
+      "type": "press-strip",
+      "blocks": {
+        "l1": {
+          "type": "logo",
+          "settings": {}
+        },
+        "l2": {
+          "type": "logo",
+          "settings": { "name": "CNN", "fallback_logo": "press-cnn.svg" }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": { "name": "National Geographic", "fallback_logo": "press-natgeo.svg" }
+        },
+        "l4": {
+          "type": "logo",
+          "settings": { "name": "PBS NewsHour", "fallback_logo": "press-pbs.svg" }
+        },
+        "l5": {
+          "type": "logo",
+          "settings": { "name": "Euronews", "fallback_logo": "press-euronews.svg" }
+        },
+        "l6": {
+          "type": "logo",
+          "settings": { "name": "Fast Company", "fallback_logo": "press-fastco.svg" }
+        }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6"],
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "press"
   ]
 }
