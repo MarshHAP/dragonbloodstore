@@ -906,6 +906,53 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
 }
 .sci-list li b { color: var(--ink); }
 .sci-note { font-size: 0.85rem !important; font-style: italic; }
+/* ---------- press strip (As seen in) ---------- */
+.press-strip { background: var(--red-950); }
+.press-strip__link { display: block; padding: 1.7rem 0 1.9rem; text-decoration: none; }
+.press-strip__label {
+  display: block; text-align: center;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  margin-bottom: 1.15rem;
+}
+.press-strip__logos {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 1.1rem 2.6rem;
+}
+.press-strip__logos img {
+  height: 25px; width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  transition: opacity 0.15s;
+}
+.press-strip__link:hover .press-strip__logos img { opacity: 1; }
+@media (max-width: 640px) {
+  .press-strip__logos { gap: 0.9rem 1.5rem; }
+  .press-strip__logos img { height: 19px; }
+}
+
+/* ---------- press page ---------- */
+.press-page { padding: 3rem 0 3.4rem; }
+.press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.press-card {
+  display: flex; flex-direction: column; gap: 0.85rem;
+  background: #fff;
+  border: 1px solid var(--sage);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem 1.35rem;
+  text-decoration: none; color: var(--ink);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.press-card:hover { box-shadow: 0 8px 24px rgba(51, 13, 7, 0.1); transform: translateY(-2px); }
+.press-card__logo { height: 30px; display: flex; align-items: center; }
+.press-card__logo img { max-height: 30px; width: auto; max-width: 180px; }
+.press-card__title { font-weight: 600; font-size: 0.97rem; line-height: 1.45; }
+.press-card__text { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+.press-card__cta { margin-top: auto; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+@media (max-width: 900px) { .press-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .press-grid { grid-template-columns: 1fr; } }
+
 .sci-sources { padding: 0 0 2.8rem; }
 .sci-sources p {
   max-width: 720px; margin: 0 auto;

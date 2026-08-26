@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-press",
+      "blocks": {
+        "a1": {
+          "type": "article",
+          "settings": {
+            "name": "Forbes",
+            "fallback_logo": "press-forbes.svg",
+            "title": "Meet Dracaena, the tree that seeps with bright red 'dragon's blood'",
+            "text": "A biologist's look at the Dracaena dragon trees and the vivid crimson resin they release when their bark is wounded.",
+            "url": "https://www.forbes.com/sites/scotttravers/2026/01/21/meet-dracaena---the-tree-that-seeps-with-bright-red-dragons-blood/"
+          }
+        },
+        "a2": {
+          "type": "article",
+          "settings": {
+            "name": "CNN",
+            "fallback_logo": "press-cnn.svg",
+            "title": "The dragon's blood trees that exist in only one place on Earth",
+            "text": "CNN reports from Socotra on the world's last dragon's blood tree forests and the race to protect them.",
+            "url": "https://www.cnn.com/2025/05/19/middleeast/socotra-trees-yemen-climate-change-intl-hnk"
+          }
+        },
+        "a3": {
+          "type": "article",
+          "settings": {
+            "name": "National Geographic",
+            "fallback_logo": "press-natgeo.svg",
+            "title": "Can Socotra, Yemen's 'Dragon's Blood Island', be saved?",
+            "text": "A photographic journey through the island whose dragon's blood trees grow nowhere else on Earth.",
+            "url": "https://www.nationalgeographic.com/environment/article/socotra-yemen-biodiversity-photography"
+          }
+        },
+        "a4": {
+          "type": "article",
+          "settings": {
+            "name": "PBS NewsHour",
+            "fallback_logo": "press-pbs.svg",
+            "title": "Climate change drives ancient dragon's blood trees to the brink",
+            "text": "PBS NewsHour visits the nurseries working to regrow Socotra's ancient dragon's blood forests.",
+            "url": "https://www.pbs.org/newshour/show/climate-change-drives-ancient-socotra-dragons-blood-tree-to-brink-of-extinction"
+          }
+        },
+        "a5": {
+          "type": "article",
+          "settings": {
+            "name": "Euronews",
+            "fallback_logo": "press-euronews.svg",
+            "title": "Dragon's blood trees grow in one place on Earth, and they're under threat",
+            "text": "Euronews Green on the famous crimson-sapped trees and the people fighting for their survival.",
+            "url": "https://www.euronews.com/2025/05/19/dragons-blood-trees-grow-in-one-place-on-earth-climate-change-and-goats-threaten-their-sur"
+          }
+        },
+        "a6": {
+          "type": "article",
+          "settings": {
+            "name": "Fast Company",
+            "fallback_logo": "press-fastco.svg",
+            "title": "The race to save the world's only dragon's blood trees",
+            "text": "Fast Company covers the conservation effort behind one of the planet's most extraordinary trees.",
+            "url": "https://www.fastcompany.com/91337109/these-trees-exist-only-one-place-earth-now-climate-change-goats-threaten-their-survival"
+          }
+        }
+      },
+      "block_order": ["a1", "a2", "a3", "a4", "a5", "a6"],
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

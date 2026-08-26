@@ -4,6 +4,37 @@
       "type": "hero-banner",
       "settings": {}
     },
+    "press": {
+      "type": "press-strip",
+      "blocks": {
+        "l1": {
+          "type": "logo",
+          "settings": {}
+        },
+        "l2": {
+          "type": "logo",
+          "settings": { "name": "CNN", "fallback_logo": "press-cnn.svg" }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": { "name": "National Geographic", "fallback_logo": "press-natgeo.svg" }
+        },
+        "l4": {
+          "type": "logo",
+          "settings": { "name": "PBS NewsHour", "fallback_logo": "press-pbs.svg" }
+        },
+        "l5": {
+          "type": "logo",
+          "settings": { "name": "Euronews", "fallback_logo": "press-euronews.svg" }
+        },
+        "l6": {
+          "type": "logo",
+          "settings": { "name": "Fast Company", "fallback_logo": "press-fastco.svg" }
+        }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6"],
+      "settings": {}
+    },
     "testimonials": {
       "type": "testimonial-strip",
       "blocks": {
@@ -136,7 +167,7 @@
           "type": "accordion",
           "settings": {
             "title": "Product Description",
-            "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract — the deep-red resin of the dragon tree — combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3–4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>"
+            "content": "<p><strong>What It Is</strong><br>Dragonblood Anti-Ageing Serum is a lightweight botanical serum built around dragon blood extract - the deep-red resin of the dragon tree - combined with ceramide NP and glossy ganoderma. One bottle: 30 ml.</p><p><strong>How to Use</strong><br>Morning and night, apply 3–4 drops to clean, dry skin. Gently press into the face and neck until absorbed, then follow with your moisturiser and (in the morning) SPF.</p>"
           }
         },
         "a2": {
@@ -150,7 +181,7 @@
           "type": "accordion",
           "settings": {
             "title": "Shipping, Returns & Guarantees",
-            "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3–5 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee — no questions asked.</p>"
+            "content": "<p>We offer fast, tracked shipping. Most orders arrive within 3–5 business days. If you don't see or feel a difference, you're protected by our 30-Day Money-Back Guarantee - no questions asked.</p>"
           }
         }
       },
@@ -213,7 +244,7 @@
         "w3": {
           "type": "review",
           "settings": {
-            "quote": "Love that it's just a few drops. No ten-step routine, no fuss — fits right into my day.",
+            "quote": "Love that it's just a few drops. No ten-step routine, no fuss - fits right into my day.",
             "name": "Jordan"
           }
         },
@@ -267,7 +298,7 @@
           "type": "question",
           "settings": {
             "question": "What if it doesn't work for me?",
-            "answer": "You're covered by our 30-Day Money-Back Guarantee — contact us for a full refund, no questions asked."
+            "answer": "You're covered by our 30-Day Money-Back Guarantee - contact us for a full refund, no questions asked."
           }
         },
         "q4": {
@@ -281,7 +312,7 @@
           "type": "question",
           "settings": {
             "question": "Can I use it with other skincare?",
-            "answer": "In most routines yes — apply after cleansing, before moisturiser. Introduce gradually if you use strong actives."
+            "answer": "In most routines yes - apply after cleansing, before moisturiser. Introduce gradually if you use strong actives."
           }
         }
       },
@@ -305,6 +336,7 @@
   },
   "order": [
     "hero",
+    "press",
     "testimonials",
     "benefits",
     "buybox",
