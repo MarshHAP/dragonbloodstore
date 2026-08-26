@@ -1,4 +1,8 @@
 {%- assign product = section.settings.product -%}
+{%- if product == blank -%}
+  {%- comment -%} No product picked in the editor: fall back to the store's first product so Add to Cart still works. {%- endcomment -%}
+  {%- assign product = collections.all.products.first -%}
+{%- endif -%}
 {%- assign variant = product.selected_or_first_available_variant -%}
 
 <section class="product" id="offer">
@@ -121,7 +125,7 @@
 {
   "name": "Buy box",
   "settings": [
-    { "type": "product", "id": "product", "label": "Product", "info": "Bundle quantities add this product's first variant to the cart. Set up automatic discounts to match the displayed bundle prices." },
+    { "type": "product", "id": "product", "label": "Product", "info": "Bundle quantities add this product's first variant to the cart. If left empty, the store's first product is used. Set up automatic discounts to match the displayed bundle prices." },
     { "type": "text", "id": "fallback_title", "label": "Fallback title (no product selected)", "default": "Dragonblood® Anti-Ageing Serum" },
     { "type": "text", "id": "tagline", "label": "Tagline", "default": "The daily ritual your skin has been waiting for." },
     { "type": "text", "id": "rating", "label": "Rating", "default": "4.9" },
