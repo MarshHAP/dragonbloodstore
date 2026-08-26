@@ -115,6 +115,18 @@
     });
   }
 
+  /* ---------- rotating image banners ---------- */
+  $$(".js-rotator").forEach(function (rot) {
+    var imgs = rot.querySelectorAll("img");
+    if (imgs.length < 2) return;
+    var current = 0;
+    setInterval(function () {
+      imgs[current].classList.remove("is-active");
+      current = (current + 1) % imgs.length;
+      imgs[current].classList.add("is-active");
+    }, 4200);
+  });
+
   /* ---------- product gallery ---------- */
   var galleryMain = $("#galleryMain");
   $$("#galleryThumbs .thumb").forEach(function (thumb) {
