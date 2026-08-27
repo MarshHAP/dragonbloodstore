@@ -13,7 +13,7 @@
       {%- if section.settings.image -%}
         {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'hero__product', alt: 'Product', loading: 'eager' }}
       {%- else -%}
-        <img class="hero__product" src="{{ 'serum-dropper.jpg' | asset_url }}" alt="Dragonblood Anti-Ageing Serum with dropper" width="1100" height="1100">
+        <img class="hero__product" src="{{ 'hero-cover.webp' | asset_url }}" alt="Dragonblood Anti-Ageing Serum bottle with dropper" width="1100" height="1163">
       {%- endif -%}
     </div>
   </div>

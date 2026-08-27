@@ -255,14 +255,14 @@ h1, h2, h3, .logo { font-family: var(--font-display); }
   justify-content: center;
 }
 .hero__product {
-  width: min(620px, 100%);
+  width: min(440px, 78%);
   margin-top: 0.4rem;
+  margin-bottom: 1.6rem;
   display: block;
-  aspect-ratio: 1 / 0.92;
-  object-fit: cover;
-  object-position: 56% 42%;
-  -webkit-mask-image: radial-gradient(105% 105% at 50% 46%, #000 38%, transparent 86%);
-  mask-image: radial-gradient(105% 105% at 50% 46%, #000 38%, transparent 86%);
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 30px rgba(127, 29, 18, 0.22));
 }
 
 /* ---------- testimonial cards ---------- */
